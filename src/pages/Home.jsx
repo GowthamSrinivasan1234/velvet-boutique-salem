@@ -26,10 +26,10 @@ const categories = [
 
 /* ── Featured products (real bestsellers from sales data) ── */
 const featured = [
-  { id: 1, name: 'Designer Silk Saree', price: '₹4,230', tag: 'Bestseller', color: '#753580', emoji: '🥻',
-    desc: 'Handpicked designer sarees from ₹1,680 — silk, pattu & wedding collections' },
+  { id: 1, name: 'Designer Sarees', price: 'From ₹440', tag: 'Bestseller', color: '#753580', emoji: '🥻',
+    desc: 'Handpicked designer sarees — silk, pattu & wedding collections for every occasion' },
   { id: 2, name: 'Blouse Stitching', price: 'From ₹350', tag: 'Most Popular', color: '#9B4DCA', emoji: '✂️',
-    desc: 'Expert custom blouse stitching with perfect fit — 628+ happy customers' },
+    desc: 'Expert custom blouse stitching with perfect fit — our most loved service' },
   { id: 3, name: 'Aari Work', price: 'From ₹600', tag: 'Premium', color: '#E8A838', emoji: '🪡',
     desc: 'Exquisite aari embroidery with intricate handwork — our signature craft' },
   { id: 4, name: 'Neck Piece', price: 'From ₹200', tag: 'Trending', color: '#20C997', emoji: '📿',
@@ -90,7 +90,7 @@ export default function Home() {
               <div className="hero__card-img">🥻</div>
               <div className="hero__card-info">
                 <span>Designer Sarees</span>
-                <strong>From ₹1,680</strong>
+                <strong>From ₹440</strong>
               </div>
             </div>
             <div className="hero__card hero__card--float1">
