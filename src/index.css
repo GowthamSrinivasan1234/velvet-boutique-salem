@@ -1,0 +1,199 @@
+/* ===== VELVET BOUTIQUE — Bold & Colorful Theme ===== */
+
+:root {
+  /* Core palette */
+  --velvet:       #8B1A4A;
+  --magenta:      #D6336C;
+  --coral:        #FF6B6B;
+  --gold:         #F5A623;
+  --teal:         #20C997;
+  --sky:          #4DABF7;
+  --lavender:     #B197FC;
+  --dark:         #1A1A2E;
+  --off-white:    #FFF8F0;
+  --white:        #FFFFFF;
+  --gray-100:     #F8F9FA;
+  --gray-200:     #E9ECEF;
+  --gray-500:     #868E96;
+  --gray-700:     #495057;
+  --gray-900:     #212529;
+
+  /* Gradients */
+  --gradient-hero:    linear-gradient(135deg, #8B1A4A 0%, #D6336C 50%, #FF6B6B 100%);
+  --gradient-accent:  linear-gradient(135deg, #F5A623 0%, #FF6B6B 100%);
+  --gradient-cool:    linear-gradient(135deg, #4DABF7 0%, #B197FC 100%);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', -apple-system, sans-serif;
+
+  /* Spacing */
+  --section-pad: 6rem 2rem;
+  --container:   1200px;
+
+  /* Transition */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--gray-900);
+  background: var(--off-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* ===== Utility ===== */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: var(--section-pad);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--gray-500);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s var(--ease);
+  font-family: var(--font-body);
+}
+
+.btn-primary {
+  background: var(--gradient-hero);
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(139, 26, 74, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 26, 74, 0.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--velvet);
+  border: 2px solid var(--velvet);
+}
+
+.btn-outline:hover {
+  background: var(--velvet);
+  color: var(--white);
+}
+
+.btn-accent {
+  background: var(--gradient-accent);
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.4);
+}
+
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 166, 35, 0.5);
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-up     { animation: fadeInUp 0.8s var(--ease) both; }
+.animate-fade-in     { animation: fadeIn 0.8s var(--ease) both; }
+.animate-slide-left  { animation: slideInLeft 0.8s var(--ease) both; }
+.animate-slide-right { animation: slideInRight 0.8s var(--ease) both; }
+.animate-scale-in    { animation: scaleIn 0.6s var(--ease) both; }
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  :root {
+    --section-pad: 4rem 1.5rem;
+  }
+}
