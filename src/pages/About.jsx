@@ -15,18 +15,20 @@ function AnimSection({ children, className = '', delay = 0 }) {
 }
 
 const values = [
-  { icon: '🌿', title: 'Sustainable', desc: 'We partner with eco-conscious brands and use sustainable packaging for every order.' },
-  { icon: '✂️', title: 'Quality Crafted', desc: 'Every piece is inspected to ensure it meets our high standards of quality and design.' },
-  { icon: '🌍', title: 'Globally Sourced', desc: 'We curate fashion from artisans and designers around the world.' },
-  { icon: '💜', title: 'Inclusive', desc: 'Fashion for every body, every style, and every occasion — no exceptions.' },
+  { icon: '✂️', title: 'Expert Stitching', desc: 'From blouse to lehenga — 1,100+ custom stitching orders delivered with perfection.' },
+  { icon: '🪡', title: 'Aari Artistry', desc: 'Exquisite aari embroidery handcrafted by skilled artisans — our signature craft.' },
+  { icon: '🥻', title: 'Curated Sarees', desc: 'Designer sarees handpicked for every occasion — weddings, festivals & everyday elegance.' },
+  { icon: '💜', title: 'Her Store Her Style', desc: 'A women-owned boutique empowering every woman to express her unique style.' },
 ]
 
 const timeline = [
-  { year: '2018', title: 'The Dream Begins', desc: 'Founded in a cozy studio in Salem, Tamil Nadu with a passion for unique fashion.' },
-  { year: '2019', title: 'First Pop-Up', desc: 'Hosted our first pop-up shop in Fairlands — sold out in 3 hours!' },
-  { year: '2021', title: 'Going Online', desc: 'Launched our Instagram presence, reaching customers across India.' },
-  { year: '2023', title: '10,000 Customers', desc: 'Reached a milestone of 10k happy customers and counting.' },
-  { year: '2025', title: 'Flagship Store', desc: 'Opened our flagship store on Indira Gandhi Rd, Fairlands, Salem.' },
+  { year: 'Oct 2024', title: 'The Studio Begins', desc: 'Velvet Boutique was born as a small stitching studio in Salem — just a sewing machine, a dream, and a passion for fashion.' },
+  { year: 'Nov 2024', title: 'First 30+ Customers', desc: 'Word spread fast! Crossed 30 orders in our second month with blouse stitching and chudidar orders.' },
+  { year: 'Jan 2025', title: 'Expanding the Craft', desc: 'Added designer sarees and fashion jewellery. 66 orders and ₹62K+ revenue — the boutique was growing.' },
+  { year: 'Jul 2025', title: 'Aari Work Launches', desc: 'Introduced our signature aari embroidery. Crossed ₹1 Lakh monthly revenue for the first time — 83 orders!' },
+  { year: 'Oct 2025', title: 'The Big Leap', desc: '261 orders in a single month! ₹2.15 Lakhs revenue. Velvet Boutique became Salem\'s go-to fashion destination.' },
+  { year: 'Dec 2025', title: 'Record-Breaking Month', desc: '560 orders, ₹5.18 Lakhs revenue, 995 items sold. From a small studio to Salem\'s busiest boutique in just 14 months.' },
+  { year: '2026', title: 'Going Digital', desc: 'Launched velvetboutique.vercel.app — bringing Her Store Her Style to the world. The journey continues!' },
 ]
 
 const team = [
@@ -45,12 +47,12 @@ export default function About() {
           <AnimSection>
             <span className="hero__badge">Our Story</span>
             <h1 className="about-hero__title">
-              Fashion with <span className="about-hero__accent">Heart & Soul</span>
+              <span className="about-hero__accent">Her Store Her Style</span>
             </h1>
             <p className="about-hero__desc">
-              Born from a love of bold self-expression, Velvet Boutique is a proud
-              women-owned boutique in Salem, Tamil Nadu. We believe fashion should
-              empower, inspire, and make you feel extraordinary.
+              What started as a small stitching studio in October 2024 has grown into
+              Salem's most loved fashion boutique. Velvet Boutique is a proud women-owned
+              brand — 2,000+ items crafted, 600+ happy customers, and counting.
             </p>
           </AnimSection>
         </div>
@@ -79,7 +81,7 @@ export default function About() {
       <section className="section about-timeline">
         <div className="container">
           <AnimSection><h2 className="section-title">Our Journey</h2></AnimSection>
-          <AnimSection delay={0.1}><p className="section-subtitle">From a cozy Salem studio to Indira Gandhi Road — here's how we got here</p></AnimSection>
+          <AnimSection delay={0.1}><p className="section-subtitle">From a small stitching studio to 560 orders in a month — here's how we got here</p></AnimSection>
           <div className="timeline">
             {timeline.map((item, i) => (
               <AnimSection key={item.year} delay={i * 0.1} className={`timeline__item ${i % 2 === 0 ? 'left' : 'right'}`}>
@@ -119,8 +121,8 @@ export default function About() {
         <div className="container">
           <AnimSection>
             <blockquote className="big-quote">
-              "We don't follow trends — we help you <em>create</em> them."
-              <cite>— Devika S, Founder</cite>
+              "Her Store, <em>Her Style</em> — every stitch tells her story."
+              <cite>— Devika S, Founder · Since October 2024</cite>
             </blockquote>
           </AnimSection>
         </div>
