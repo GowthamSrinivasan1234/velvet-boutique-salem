@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="container footer__grid">
           <div className="footer__brand">
             <h3 className="footer__logo">
-              <img src="/images/logo-horizontal-white.png" alt="Velvet Boutique" className="footer__logo-img" />
+              <img src="/images/logo-white.png" alt="Velvet Boutique" className="footer__logo-img" />
             </h3>
             <p>Curated sarees, kurtis & custom designs for the bold & beautiful. Your women-owned boutique in Salem, Tamil Nadu.</p>
             <div className="footer__socials">
