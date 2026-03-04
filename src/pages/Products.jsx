@@ -49,6 +49,11 @@ export default function Products() {
   const [sort, setSort] = useState('Featured')
   const [wishlist, setWishlist] = useState(new Set())
 
+  const openWhatsApp = (item) => {
+    const msg = `Hi! I'm interested in *${item.name}* (${item.cat}) starting from ₹${item.price.toLocaleString('en-IN')}. Could you share more details?`
+    window.open(`https://wa.me/919345188551?text=${encodeURIComponent(msg)}`, '_blank')
+  }
+
   const toggleWish = id => setWishlist(prev => {
     const next = new Set(prev)
     next.has(id) ? next.delete(id) : next.add(id)
@@ -111,7 +116,7 @@ export default function Products() {
                     <span className="product-card__tag">{item.tag}</span>
                     <div className="product-card__placeholder">{item.emoji}</div>
                     <div className="product-card__overlay">
-                      <button className="btn btn-primary">Quick View</button>
+                      <button className="btn btn-primary" onClick={() => openWhatsApp(item)}>Enquire on WhatsApp</button>
                     </div>
                     <button
                       className={`product-card__wish ${wishlist.has(item.id) ? 'active' : ''}`}

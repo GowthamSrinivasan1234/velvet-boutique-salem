@@ -141,7 +141,7 @@ export default function Home() {
                     <span className="product-card__tag">{item.tag}</span>
                     <div className="product-card__placeholder">{item.emoji}</div>
                     <div className="product-card__overlay">
-                      <button className="btn btn-primary">Quick View</button>
+                      <a href={`https://wa.me/919345188551?text=${encodeURIComponent(`Hi! I'm interested in *${item.name}* (${item.price}). Could you share more details?`)}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Enquire on WhatsApp</a>
                     </div>
                   </div>
                   <div className="product-card__info">
