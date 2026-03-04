@@ -73,7 +73,7 @@ const blogPosts = [
   },
 ]
 
-const categories = ['All', 'Trends', 'Style Tips', 'Guides', 'Sustainability', 'News']
+const categories = ['All', 'Trends', 'Style Tips', 'Guides', 'Community', 'News']
 
 export default function Blog() {
   const [activeCat, setActiveCat] = useState('All')

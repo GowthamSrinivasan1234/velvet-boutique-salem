@@ -2,7 +2,7 @@
 .about-hero {
   padding: 10rem 0 5rem;
   text-align: center;
-  background: linear-gradient(160deg, #FFF8F0 0%, #FFE8E0 40%, #F0E0FF 100%);
+  background: linear-gradient(160deg, #FBF7FC 0%, #F0E0F5 40%, #E8D5F0 100%);
   position: relative;
   overflow: hidden;
 }
@@ -12,7 +12,7 @@
   position: absolute;
   width: 400px; height: 400px;
   border-radius: 50%;
-  background: var(--magenta);
+  background: var(--velvet);
   filter: blur(100px);
   opacity: 0.2;
   top: -10%; right: -5%;
@@ -181,7 +181,7 @@
 .team-card__avatar {
   width: 80px; height: 80px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #FFE0EC, #F0E0FF);
+  background: linear-gradient(135deg, #F0E0F5, #E8D5F0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,7 +204,7 @@
 /* ===== Statement ===== */
 .about-statement {
   text-align: center;
-  background: linear-gradient(135deg, #FFF8F0, #FFFFFF);
+  background: linear-gradient(135deg, #FBF7FC, #FFFFFF);
 }
 
 .big-quote {

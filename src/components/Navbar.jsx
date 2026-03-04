@@ -27,9 +27,7 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar__inner container">
         <Link to="/" className="navbar__logo">
-          <span className="logo-icon">✦</span>
-          <span className="logo-text">Velvet</span>
-          <span className="logo-accent">Boutique</span>
+          <img src="/images/logo-horizontal.png" alt="Velvet Boutique" className="navbar__logo-img" />
         </Link>
 
         <nav className={`navbar__links ${menuOpen ? 'open' : ''}`}>

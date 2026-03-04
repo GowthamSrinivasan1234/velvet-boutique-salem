@@ -13,8 +13,10 @@ export default function Footer() {
       <div className="footer__body">
         <div className="container footer__grid">
           <div className="footer__brand">
-            <h3 className="footer__logo">✦ Velvet Boutique</h3>
-            <p>Curated fashion for the bold & beautiful. Elevate your style with handpicked collections from around the world.</p>
+            <h3 className="footer__logo">
+              <img src="/images/logo-horizontal-white.png" alt="Velvet Boutique" className="footer__logo-img" />
+            </h3>
+            <p>Curated sarees, kurtis & custom designs for the bold & beautiful. Your women-owned boutique in Salem, Tamil Nadu.</p>
             <div className="footer__socials">
               <a href="https://www.instagram.com/velvet_boutique_salem/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">I</a>
               <a href="https://www.google.com/maps/place/Velvet+Boutique/@11.6761752,78.1437772,924m" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Google Maps">G</a>
