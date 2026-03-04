@@ -57,7 +57,7 @@ export default function Home() {
 
         <div className="container hero__inner">
           <div className="hero__content animate-fade-up">
-            <span className="hero__badge">✦ Women-Owned Boutique · Salem</span>
+            <span className="hero__badge">✦ Her Store Her Style · Salem</span>
             <h1 className="hero__title">
               Discover Your<br />
               <span className="hero__title-accent">Signature Style</span>

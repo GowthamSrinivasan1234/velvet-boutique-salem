@@ -16,7 +16,7 @@ export default function Footer() {
             <h3 className="footer__logo">
               <img src="/images/logo-white.png" alt="Velvet Boutique" className="footer__logo-img" />
             </h3>
-            <p>Curated sarees, kurtis & custom designs for the bold & beautiful. Your women-owned boutique in Salem, Tamil Nadu.</p>
+            <p>Her Store Her Style — designer sarees, custom stitching & aari embroidery. Your women-owned boutique in Salem, Tamil Nadu.</p>
             <div className="footer__socials">
               <a href="https://www.instagram.com/velvet_boutique_salem/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">I</a>
               <a href="https://www.google.com/maps/place/Velvet+Boutique/@11.6761752,78.1437772,924m" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Google Maps">G</a>
@@ -44,7 +44,7 @@ export default function Footer() {
           <div className="footer__col">
             <h4>Get in Touch</h4>
             <p>Indira Gandhi Rd, Fairlands<br/>Salem, Tamil Nadu 636016</p>
-            <p>hello@velvetboutique.com</p>
+            <p>velvetboutique2k24@gmail.com</p>
             <p>+91 93451 88551</p>
           </div>
         </div>
