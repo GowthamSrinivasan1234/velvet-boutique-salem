@@ -16,24 +16,24 @@ function AnimSection({ children, className = '', delay = 0 }) {
   )
 }
 
-/* ── Category data ── */
+/* ── Category data (from real sales report) ── */
 const categories = [
-  { name: 'Sarees', emoji: '🥻', color: '#753580', count: '150+ styles' },
-  { name: 'Kurtis', emoji: '👗', color: '#9B4DCA', count: '120+ designs' },
-  { name: 'Custom Wear', emoji: '✂️', color: '#E8A838', count: 'Made to Order' },
-  { name: 'Accessories', emoji: '💎', color: '#20C997', count: '80+ pieces' },
+  { name: 'Sarees', emoji: '🥻', color: '#753580', count: '67+ designs' },
+  { name: 'Custom Stitching', emoji: '✂️', color: '#9B4DCA', count: '1,100+ orders' },
+  { name: 'Aari & Embroidery', emoji: '🪡', color: '#E8A838', count: '100+ designs' },
+  { name: 'Jewellery', emoji: '💎', color: '#20C997', count: '80+ pieces' },
 ]
 
-/* ── Featured products ── */
+/* ── Featured products (real bestsellers from sales data) ── */
 const featured = [
-  { id: 1, name: 'Kanchipuram Silk Saree', price: '₹4,999', tag: 'New', color: '#753580',
-    desc: 'Handwoven pure silk with traditional zari border' },
-  { id: 2, name: 'Designer Anarkali Kurti', price: '₹1,899', tag: 'Bestseller', color: '#9B4DCA',
-    desc: 'Elegant floor-length Anarkali with embroidery detailing' },
-  { id: 3, name: 'Custom Bridal Lehenga', price: '₹12,999', tag: 'Custom', color: '#E8A838',
-    desc: 'Made-to-order bridal lehenga with intricate handwork' },
-  { id: 4, name: 'Banarasi Dupatta', price: '₹2,499', tag: 'Trending', color: '#20C997',
-    desc: 'Rich Banarasi weave dupatta that elevates any outfit' },
+  { id: 1, name: 'Designer Silk Saree', price: '₹4,230', tag: 'Bestseller', color: '#753580', emoji: '🥻',
+    desc: 'Handpicked designer sarees from ₹1,680 — silk, pattu & wedding collections' },
+  { id: 2, name: 'Blouse Stitching', price: 'From ₹350', tag: 'Most Popular', color: '#9B4DCA', emoji: '✂️',
+    desc: 'Expert custom blouse stitching with perfect fit — 628+ happy customers' },
+  { id: 3, name: 'Aari Work', price: 'From ₹600', tag: 'Premium', color: '#E8A838', emoji: '🪡',
+    desc: 'Exquisite aari embroidery with intricate handwork — our signature craft' },
+  { id: 4, name: 'Neck Piece', price: 'From ₹200', tag: 'Trending', color: '#20C997', emoji: '📿',
+    desc: 'Elegant fashion jewellery — neck pieces, pendants & earrings for every occasion' },
 ]
 
 /* ── Testimonials — Real Google Reviews (4.8★) ── */
@@ -63,8 +63,8 @@ export default function Home() {
               <span className="hero__title-accent">Signature Style</span>
             </h1>
             <p className="hero__description">
-              Curated sarees, kurtis & custom designs for the bold & beautiful.
-              Handpicked fashion from the heart of Salem, Tamil Nadu.
+              Designer sarees, custom stitching & exquisite aari embroidery.
+              Handcrafted fashion from the heart of Salem, Tamil Nadu.
             </p>
             <div className="hero__actions">
               <Link to="/products" className="btn btn-primary">
@@ -76,7 +76,7 @@ export default function Home() {
             </div>
 
             <div className="hero__stats">
-              {[['500+', 'Products'], ['10k+', 'Customers'], ['4.8★', 'Rating']].map(([num, label]) => (
+              {[['2,000+', 'Items Sold'], ['600+', 'Happy Customers'], ['4.8★', 'Google Rating']].map(([num, label]) => (
                 <div key={label} className="hero__stat">
                   <strong>{num}</strong>
                   <span>{label}</span>
@@ -89,8 +89,8 @@ export default function Home() {
             <div className="hero__card hero__card--main">
               <div className="hero__card-img">🥻</div>
               <div className="hero__card-info">
-                <span>New Arrivals</span>
-                <strong>From ₹999</strong>
+                <span>Designer Sarees</span>
+                <strong>From ₹1,680</strong>
               </div>
             </div>
             <div className="hero__card hero__card--float1">
@@ -139,7 +139,7 @@ export default function Home() {
                 <div className="product-card" style={{ '--accent': item.color }}>
                   <div className="product-card__img">
                     <span className="product-card__tag">{item.tag}</span>
-                    <div className="product-card__placeholder">{categories.find(c => item.name.toLowerCase().includes(c.name.toLowerCase().slice(0,-2)))?.emoji || '✦'}</div>
+                    <div className="product-card__placeholder">{item.emoji}</div>
                     <div className="product-card__overlay">
                       <button className="btn btn-primary">Quick View</button>
                     </div>
@@ -164,9 +164,9 @@ export default function Home() {
         <div className="marquee-track">
           {Array.from({ length: 3 }).map((_, i) => (
             <div key={i} className="marquee-content">
-              <span>★ New Arrivals Weekly</span>
-              <span>★ Custom Stitching Available</span>
-              <span>★ Women-Owned Business</span>
+              <span>★ Designer Sarees Collection</span>
+              <span>★ Custom Stitching Services</span>
+              <span>★ Aari & Embroidery Work</span>
               <span>★ 4.8★ Google Rating</span>
             </div>
           ))}
