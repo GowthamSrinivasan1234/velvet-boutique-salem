@@ -23,12 +23,12 @@ const values = [
 
 const timeline = [
   { year: 'Oct 2024', title: 'The Studio Begins', desc: 'Velvet Boutique was born as a small stitching studio in Salem — just a sewing machine, a dream, and a passion for fashion.' },
-  { year: 'Nov 2024', title: 'First 30+ Customers', desc: 'Word spread fast! Crossed 30 orders in our second month with blouse stitching and chudidar orders.' },
-  { year: 'Jan 2025', title: 'Expanding the Craft', desc: 'Added designer sarees and fashion jewellery. 66 orders and ₹62K+ revenue — the boutique was growing.' },
-  { year: 'Jul 2025', title: 'Aari Work Launches', desc: 'Introduced our signature aari embroidery. Crossed ₹1 Lakh monthly revenue for the first time — 83 orders!' },
-  { year: 'Oct 2025', title: 'The Big Leap', desc: '261 orders in a single month! ₹2.15 Lakhs revenue. Velvet Boutique became Salem\'s go-to fashion destination.' },
-  { year: 'Dec 2025', title: 'Record-Breaking Month', desc: '560 orders, ₹5.18 Lakhs revenue, 995 items sold. From a small studio to Salem\'s busiest boutique in just 14 months.' },
-  { year: '2026', title: 'Going Digital', desc: 'Launched velvetboutique.vercel.app — bringing Her Store Her Style to the world. The journey continues!' },
+  { year: 'Nov 2024', title: 'First Customers', desc: 'Word spread fast! Our blouse stitching and chudidar orders won hearts in the very first weeks.' },
+  { year: 'Jan 2025', title: 'Expanding the Craft', desc: 'Added designer sarees and fashion jewellery to our collection. The boutique was growing beyond stitching.' },
+  { year: 'Jul 2025', title: 'Aari Work Launches', desc: 'Introduced our signature aari embroidery — intricate handcrafted designs that became an instant favourite.' },
+  { year: 'Oct 2025', title: 'The Big Leap', desc: 'Velvet Boutique became Salem\'s go-to fashion destination with hundreds of happy customers every month.' },
+  { year: 'Dec 2025', title: 'Record-Breaking Month', desc: 'Our busiest month ever! From a small studio to Salem\'s most loved boutique in just 14 months.' },
+  { year: '2026', title: 'Going Digital', desc: 'Launched our website — bringing Her Store Her Style to the world. The journey continues!' },
 ]
 
 const team = [
@@ -81,7 +81,7 @@ export default function About() {
       <section className="section about-timeline">
         <div className="container">
           <AnimSection><h2 className="section-title">Our Journey</h2></AnimSection>
-          <AnimSection delay={0.1}><p className="section-subtitle">From a small stitching studio to 560 orders in a month — here's how we got here</p></AnimSection>
+          <AnimSection delay={0.1}><p className="section-subtitle">From a small stitching studio to Salem's most loved boutique — here's how we got here</p></AnimSection>
           <div className="timeline">
             {timeline.map((item, i) => (
               <AnimSection key={item.year} delay={i * 0.1} className={`timeline__item ${i % 2 === 0 ? 'left' : 'right'}`}>
