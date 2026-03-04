@@ -33,7 +33,7 @@ const timeline = [
 
 const team = [
   { name: 'Devika S', role: 'Founder & Creative Director', emoji: '👩‍🎨' },
-  { name: 'Lalith S', role: 'Head of Operations', emoji: '👨‍💼' },
+  { name: 'Lalith S', role: 'Head of Operations', emoji: '�‍💼' },
   { name: 'Kamaran', role: 'Lead Stylist', emoji: '✂️' },
   { name: 'Nandhini R', role: 'Brand Manager', emoji: '👩‍💻' },
 ]
