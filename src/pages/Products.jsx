@@ -11,21 +11,37 @@ function AnimSection({ children, className = '', delay = 0 }) {
 }
 
 const allProducts = [
-  { id: 1,  name: 'Kanchipuram Silk Saree',    price: 4999, cat: 'Sarees',      tag: 'New',        emoji: '🥻',  color: '#753580' },
-  { id: 2,  name: 'Banarasi Saree',            price: 3499, cat: 'Sarees',      tag: 'Bestseller', emoji: '🥻',  color: '#9B4DCA' },
-  { id: 3,  name: 'Designer Anarkali Kurti',   price: 1899, cat: 'Kurtis',      tag: 'Trending',   emoji: '👗',  color: '#753580' },
-  { id: 4,  name: 'Cotton Kurti Set',          price: 1299, cat: 'Kurtis',      tag: 'Bestseller', emoji: '👗',  color: '#E8A838' },
-  { id: 5,  name: 'Custom Bridal Lehenga',     price: 12999,cat: 'Custom Wear', tag: 'Custom',     emoji: '✂️',  color: '#9B4DCA' },
-  { id: 6,  name: 'Custom Blouse Stitching',   price: 999,  cat: 'Custom Wear', tag: 'Popular',    emoji: '✂️',  color: '#753580' },
-  { id: 7,  name: 'Silk Dupatta',              price: 2499, cat: 'Accessories', tag: 'New',        emoji: '🧣',  color: '#E8A838' },
-  { id: 8,  name: 'Embroidered Clutch',        price: 799,  cat: 'Accessories', tag: 'Trending',   emoji: '👜',  color: '#9B4DCA' },
-  { id: 9,  name: 'Pattu Saree',               price: 5999, cat: 'Sarees',      tag: 'Premium',    emoji: '🥻',  color: '#E8A838' },
-  { id: 10, name: 'Palazzo Kurti Set',         price: 1599, cat: 'Kurtis',      tag: 'New',        emoji: '👗',  color: '#20C997' },
-  { id: 11, name: 'Custom Churidar',           price: 1499, cat: 'Custom Wear', tag: 'Custom',     emoji: '✂️',  color: '#E8A838' },
-  { id: 12, name: 'Jhumka Earrings',           price: 599,  cat: 'Accessories', tag: 'Bestseller', emoji: '💎',  color: '#753580' },
+  /* ── Sarees (67 sold · ₹440–₹9,180) ── */
+  { id: 1,  name: 'Designer Silk Saree',          price: 4230,  cat: 'Sarees',            tag: 'Bestseller',   emoji: '🥻', color: '#753580' },
+  { id: 2,  name: 'Designer Pattu Saree',         price: 2865,  cat: 'Sarees',            tag: 'Popular',      emoji: '🥻', color: '#9B4DCA' },
+  { id: 3,  name: 'Designer Wedding Saree',       price: 9180,  cat: 'Sarees',            tag: 'Premium',      emoji: '🥻', color: '#E8A838' },
+  { id: 4,  name: 'Designer Cotton Saree',        price: 1680,  cat: 'Sarees',            tag: 'New',          emoji: '🥻', color: '#753580' },
+
+  /* ── Custom Stitching (1,100+ orders) ── */
+  { id: 5,  name: 'Blouse Stitching',             price: 850,   cat: 'Custom Stitching',  tag: 'Most Popular', emoji: '✂️', color: '#753580' },
+  { id: 6,  name: 'Chudidar Stitching',           price: 780,   cat: 'Custom Stitching',  tag: 'Bestseller',   emoji: '✂️', color: '#9B4DCA' },
+  { id: 7,  name: 'Lehanga Stitching',            price: 1420,  cat: 'Custom Stitching',  tag: 'Premium',      emoji: '✂️', color: '#E8A838' },
+  { id: 8,  name: 'Frock Stitching',              price: 960,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#753580' },
+  { id: 9,  name: 'Skirt & Top Stitching',        price: 1240,  cat: 'Custom Stitching',  tag: 'Trending',     emoji: '✂️', color: '#9B4DCA' },
+  { id: 10, name: 'Top Stitching',                price: 620,   cat: 'Custom Stitching',  tag: 'New',          emoji: '✂️', color: '#E8A838' },
+  { id: 11, name: 'Baby Frock Stitching',         price: 900,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#753580' },
+  { id: 12, name: 'Kids Wear Stitching',          price: 990,   cat: 'Custom Stitching',  tag: 'New',          emoji: '✂️', color: '#9B4DCA' },
+  { id: 13, name: 'Skirt Stitching',              price: 620,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#E8A838' },
+
+  /* ── Aari & Embroidery (100+ designs · ₹600–₹15,400) ── */
+  { id: 14, name: 'Aari Work',                    price: 4440,  cat: 'Aari & Embroidery', tag: 'Bestseller',   emoji: '🪡', color: '#753580' },
+  { id: 15, name: 'Designer Aari Bridal Work',    price: 15400, cat: 'Aari & Embroidery', tag: 'Premium',      emoji: '🪡', color: '#9B4DCA' },
+  { id: 16, name: 'Machine Embroidery',           price: 875,   cat: 'Aari & Embroidery', tag: 'New',          emoji: '🪡', color: '#E8A838' },
+  { id: 17, name: 'Painting Work',                price: 1810,  cat: 'Aari & Embroidery', tag: 'Custom',       emoji: '🎨', color: '#753580' },
+
+  /* ── Jewellery (80+ pieces · ₹170–₹2,480) ── */
+  { id: 18, name: 'Neck Piece',                   price: 1190,  cat: 'Jewellery',         tag: 'Trending',     emoji: '📿', color: '#753580' },
+  { id: 19, name: 'Pendant',                      price: 790,   cat: 'Jewellery',         tag: 'Popular',      emoji: '💎', color: '#9B4DCA' },
+  { id: 20, name: 'Earrings',                     price: 690,   cat: 'Jewellery',         tag: 'Bestseller',   emoji: '✨', color: '#E8A838' },
+  { id: 21, name: 'Tassel',                       price: 680,   cat: 'Jewellery',         tag: 'New',          emoji: '🎀', color: '#753580' },
 ]
 
-const categories = ['All', 'Sarees', 'Kurtis', 'Custom Wear', 'Accessories']
+const categories = ['All', 'Sarees', 'Custom Stitching', 'Aari & Embroidery', 'Jewellery']
 const sortOptions = ['Featured', 'Price: Low → High', 'Price: High → Low', 'Newest']
 
 export default function Products() {
@@ -56,7 +72,7 @@ export default function Products() {
               Our <span className="products-hero__accent">Collections</span>
             </h1>
             <p className="products-hero__desc">
-              Explore our handpicked selection of fashion-forward pieces designed to make you shine.
+              Designer sarees, custom stitching, aari embroidery & fashion jewellery — all under one roof.
             </p>
           </AnimSection>
         </div>
