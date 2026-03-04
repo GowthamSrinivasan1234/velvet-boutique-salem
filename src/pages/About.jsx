@@ -33,9 +33,9 @@ const timeline = [
 
 const team = [
   { name: 'Devika S', role: 'Founder & Creative Director', emoji: '\u{1F469}\u{200D}\u{1F3A8}' },
-  { name: 'Lalith S', role: 'Head of Operations', emoji: '\u{1F469}\u{200D}\u{1F4BC}' },
+  { name: 'Lalith S', role: 'Co-Founder & Head of Operations', emoji: '\u{1F469}\u{200D}\u{1F4BC}' },
   { name: 'Kamaran', role: 'Lead Stylist', emoji: '\u2702\uFE0F' },
-  { name: 'Nandhini R', role: 'Brand Manager', emoji: '\u{1F469}\u{200D}\u{1F4BB}' },
+  { name: 'Nandhini R', role: 'Digital & Brand Manager', emoji: '\u{1F469}\u{200D}\u{1F4BB}' },
 ]
 
 export default function About() {
