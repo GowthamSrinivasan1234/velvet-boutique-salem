@@ -12,7 +12,7 @@ function AnimSection({ children, className = '', delay = 0 }) {
 
 const contactInfo = [
   { icon: '📍', label: 'Visit Us', value: 'Indira Gandhi Rd, Fairlands\nSalem, Tamil Nadu 636016' },
-  { icon: '📧', label: 'Email Us', value: 'hello@velvetboutique.com' },
+  { icon: '📧', label: 'Email Us', value: 'velvetboutique2k24@gmail.com' },
   { icon: '📞', label: 'Call Us', value: '+91 93451 88551' },
   { icon: '🕐', label: 'Hours', value: 'Mon–Sat: 10am – 8pm\nSun: Closed' },
 ]
