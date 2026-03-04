@@ -23,6 +23,8 @@ export default function Contact() {
 
   const handleSubmit = e => {
     e.preventDefault()
+    const msg = `Hi! I'm *${form.name}* (${form.email}).\n\n*Subject:* ${form.subject}\n\n*Message:* ${form.message}`
+    window.open(`https://wa.me/919345188551?text=${encodeURIComponent(msg)}`, '_blank')
     setSubmitted(true)
     setTimeout(() => setSubmitted(false), 4000)
     setForm({ name: '', email: '', subject: '', message: '' })
