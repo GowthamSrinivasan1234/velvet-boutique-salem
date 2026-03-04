@@ -2,7 +2,7 @@
 .blog-hero {
   padding: 10rem 0 5rem;
   text-align: center;
-  background: linear-gradient(160deg, #FFF8F0 0%, #FFE8E0 40%, #F0E0FF 100%);
+  background: linear-gradient(160deg, #FBF7FC 0%, #F0E0F5 40%, #E8D5F0 100%);
 }
 
 .blog-hero__title {
@@ -51,7 +51,7 @@
 .blog-featured:hover { transform: translateY(-4px); }
 
 .blog-featured__img {
-  background: linear-gradient(135deg, #FFE0EC, #F0E0FF);
+  background: linear-gradient(135deg, #F0E0F5, #E8D5F0);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,7 +122,7 @@
 
 .blog-card__img {
   height: 200px;
-  background: linear-gradient(135deg, #FFF0F5, #F0EFFF);
+  background: linear-gradient(135deg, #FBF7FC, #F0E0F5);
   display: flex;
   align-items: center;
   justify-content: center;

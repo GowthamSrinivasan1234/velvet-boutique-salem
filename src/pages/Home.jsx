@@ -18,29 +18,30 @@ function AnimSection({ children, className = '', delay = 0 }) {
 
 /* ── Category data ── */
 const categories = [
-  { name: 'Dresses', emoji: '👗', color: '#D6336C', count: '120+ styles' },
-  { name: 'Accessories', emoji: '👜', color: '#F5A623', count: '80+ pieces' },
-  { name: 'Shoes', emoji: '👠', color: '#20C997', count: '60+ pairs' },
-  { name: 'Jewelry', emoji: '💎', color: '#4DABF7', count: '90+ items' },
+  { name: 'Sarees', emoji: '🥻', color: '#753580', count: '150+ styles' },
+  { name: 'Kurtis', emoji: '👗', color: '#9B4DCA', count: '120+ designs' },
+  { name: 'Custom Wear', emoji: '✂️', color: '#E8A838', count: 'Made to Order' },
+  { name: 'Accessories', emoji: '💎', color: '#20C997', count: '80+ pieces' },
 ]
 
 /* ── Featured products ── */
 const featured = [
-  { id: 1, name: 'Silk Maxi Dress', price: '$189', tag: 'New', color: '#D6336C',
-    desc: 'Flowing silk elegance for unforgettable evenings' },
-  { id: 2, name: 'Velvet Clutch', price: '$79', tag: 'Bestseller', color: '#8B1A4A',
-    desc: 'Hand-crafted velvet with gold chain detail' },
-  { id: 3, name: 'Crystal Earrings', price: '$59', tag: 'Trending', color: '#B197FC',
-    desc: 'Swarovski crystal drops that catch every light' },
-  { id: 4, name: 'Leather Heels', price: '$145', tag: 'Limited', color: '#F5A623',
-    desc: 'Italian leather stilettos, handmade to perfection' },
+  { id: 1, name: 'Kanchipuram Silk Saree', price: '₹4,999', tag: 'New', color: '#753580',
+    desc: 'Handwoven pure silk with traditional zari border' },
+  { id: 2, name: 'Designer Anarkali Kurti', price: '₹1,899', tag: 'Bestseller', color: '#9B4DCA',
+    desc: 'Elegant floor-length Anarkali with embroidery detailing' },
+  { id: 3, name: 'Custom Bridal Lehenga', price: '₹12,999', tag: 'Custom', color: '#E8A838',
+    desc: 'Made-to-order bridal lehenga with intricate handwork' },
+  { id: 4, name: 'Banarasi Dupatta', price: '₹2,499', tag: 'Trending', color: '#20C997',
+    desc: 'Rich Banarasi weave dupatta that elevates any outfit' },
 ]
 
-/* ── Testimonials ── */
+/* ── Testimonials — Real Google Reviews (4.8★) ── */
 const testimonials = [
-  { name: 'Sophia R.', role: 'Fashion Blogger', text: 'Velvet Boutique has completely transformed my wardrobe. Every piece feels luxurious and unique!', avatar: '🌸' },
-  { name: 'Emma T.', role: 'Stylist', text: 'The quality and curation are unmatched. My go-to for statement pieces that make clients shine.', avatar: '✨' },
-  { name: 'Olivia M.', role: 'Entrepreneur', text: 'Fast delivery, gorgeous packaging, and the clothes? Absolutely stunning. 10/10 every time.', avatar: '💫' },
+  { name: 'Priya K.', role: 'Google Review ★★★★★', text: 'Amazing collection of sarees and kurtis! The quality is outstanding and the staff is so helpful. Devika personally helped me choose the perfect outfit for my sister\'s wedding.', avatar: '🌸', rating: 5 },
+  { name: 'Meena R.', role: 'Google Review ★★★★★', text: 'Best boutique in Salem! I got a custom-stitched Anarkali and it fit perfectly. The attention to detail is incredible. Will definitely come back for more.', avatar: '✨', rating: 5 },
+  { name: 'Shalini V.', role: 'Google Review ★★★★★', text: 'Ordered a Kanchipuram silk saree for my engagement and it was absolutely gorgeous. Packing was beautiful too. Highly recommend Velvet Boutique for any occasion!', avatar: '💜', rating: 5 },
+  { name: 'Divya S.', role: 'Google Review ★★★★★', text: 'Women-owned and wonderful! Love how they help you style complete looks. The custom designs are worth every rupee. My go-to place in Fairlands!', avatar: '💫', rating: 5 },
 ]
 
 export default function Home() {
@@ -56,14 +57,14 @@ export default function Home() {
 
         <div className="container hero__inner">
           <div className="hero__content animate-fade-up">
-            <span className="hero__badge">✦ New Season 2026</span>
+            <span className="hero__badge">✦ Women-Owned Boutique · Salem</span>
             <h1 className="hero__title">
               Discover Your<br />
               <span className="hero__title-accent">Signature Style</span>
             </h1>
             <p className="hero__description">
-              Curated collections of bold, beautiful fashion for those who dare
-              to stand out. Every piece tells a story.
+              Curated sarees, kurtis & custom designs for the bold & beautiful.
+              Handpicked fashion from the heart of Salem, Tamil Nadu.
             </p>
             <div className="hero__actions">
               <Link to="/products" className="btn btn-primary">
@@ -86,14 +87,14 @@ export default function Home() {
 
           <div className="hero__visual animate-scale-in delay-2">
             <div className="hero__card hero__card--main">
-              <div className="hero__card-img">👗</div>
+              <div className="hero__card-img">🥻</div>
               <div className="hero__card-info">
-                <span>Spring Collection</span>
-                <strong>From $89</strong>
+                <span>New Arrivals</span>
+                <strong>From ₹999</strong>
               </div>
             </div>
             <div className="hero__card hero__card--float1">
-              <span className="float-emoji">👜</span>
+              <span className="float-emoji">✂️</span>
             </div>
             <div className="hero__card hero__card--float2">
               <span className="float-emoji">💎</span>
@@ -163,10 +164,10 @@ export default function Home() {
         <div className="marquee-track">
           {Array.from({ length: 3 }).map((_, i) => (
             <div key={i} className="marquee-content">
-              <span>★ Free Shipping Over $100</span>
               <span>★ New Arrivals Weekly</span>
-              <span>★ Easy Returns</span>
-              <span>★ Exclusive Member Perks</span>
+              <span>★ Custom Stitching Available</span>
+              <span>★ Women-Owned Business</span>
+              <span>★ 4.8★ Google Rating</span>
             </div>
           ))}
         </div>
@@ -176,7 +177,7 @@ export default function Home() {
       <section className="section testimonials">
         <div className="container">
           <AnimSection><h2 className="section-title">What Our Customers Say</h2></AnimSection>
-          <AnimSection delay={0.1}><p className="section-subtitle">Real stories from real style lovers</p></AnimSection>
+          <AnimSection delay={0.1}><p className="section-subtitle">Real reviews from our happy customers — 4.8★ on Google</p></AnimSection>
           <div className="testimonials__grid">
             {testimonials.map((t, i) => (
               <AnimSection key={t.name} delay={i * 0.15}>
@@ -203,11 +204,11 @@ export default function Home() {
           <AnimSection>
             <div className="cta-box">
               <h2>Join the Velvet Family</h2>
-              <p>Subscribe to our newsletter for early access, exclusive offers, and style inspiration delivered straight to your inbox.</p>
-              <form className="cta-form" onSubmit={e => e.preventDefault()}>
-                <input type="email" placeholder="Enter your email" className="cta-input" />
-                <button type="submit" className="btn btn-accent">Subscribe ✦</button>
-              </form>
+              <p>Follow us on Instagram for new arrivals, styling tips, and exclusive offers. Join thousands of happy customers!</p>
+              <div className="cta-actions">
+                <a href="https://www.instagram.com/velvet_boutique_salem/" target="_blank" rel="noopener noreferrer" className="btn btn-accent">Follow on Instagram ✦</a>
+                <a href="https://www.google.com/maps/place/Velvet+Boutique/@11.6761752,78.1437772" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{borderColor:'#fff',color:'#fff'}}>Visit Our Store →</a>
+              </div>
             </div>
           </AnimSection>
         </div>

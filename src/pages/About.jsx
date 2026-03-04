@@ -30,10 +30,10 @@ const timeline = [
 ]
 
 const team = [
-  { name: 'Elena Martinez', role: 'Founder & Creative Director', emoji: '👩‍🎨' },
-  { name: 'James Chen', role: 'Head of Operations', emoji: '👨‍💼' },
-  { name: 'Priya Sharma', role: 'Lead Stylist', emoji: '👩‍🎤' },
-  { name: 'Aiden Brooks', role: 'Brand Manager', emoji: '🧑‍💻' },
+  { name: 'Devika S', role: 'Founder & Creative Director', emoji: '👩‍🎨' },
+  { name: 'Lalith S', role: 'Head of Operations', emoji: '👨‍💼' },
+  { name: 'Kamaran', role: 'Lead Stylist', emoji: '✂️' },
+  { name: 'Nandhini R', role: 'Brand Manager', emoji: '👩‍💻' },
 ]
 
 export default function About() {
@@ -48,9 +48,9 @@ export default function About() {
               Fashion with <span className="about-hero__accent">Heart & Soul</span>
             </h1>
             <p className="about-hero__desc">
-              Born from a love of bold self-expression, Velvet Boutique is more than
-              a store — it's a movement. We believe fashion should empower, inspire,
-              and make you feel extraordinary.
+              Born from a love of bold self-expression, Velvet Boutique is a proud
+              women-owned boutique in Salem, Tamil Nadu. We believe fashion should
+              empower, inspire, and make you feel extraordinary.
             </p>
           </AnimSection>
         </div>
@@ -120,7 +120,7 @@ export default function About() {
           <AnimSection>
             <blockquote className="big-quote">
               "We don't follow trends — we help you <em>create</em> them."
-              <cite>— Elena Martinez, Founder</cite>
+              <cite>— Devika S, Founder</cite>
             </blockquote>
           </AnimSection>
         </div>

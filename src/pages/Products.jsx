@@ -11,21 +11,21 @@ function AnimSection({ children, className = '', delay = 0 }) {
 }
 
 const allProducts = [
-  { id: 1,  name: 'Silk Maxi Dress',        price: 189, cat: 'Dresses',     tag: 'New',        emoji: '👗',  color: '#D6336C' },
-  { id: 2,  name: 'Velvet Clutch Bag',       price: 79,  cat: 'Accessories', tag: 'Bestseller', emoji: '👜',  color: '#8B1A4A' },
-  { id: 3,  name: 'Crystal Drop Earrings',   price: 59,  cat: 'Jewelry',     tag: 'Trending',   emoji: '💎',  color: '#B197FC' },
-  { id: 4,  name: 'Italian Leather Heels',   price: 145, cat: 'Shoes',       tag: 'Limited',    emoji: '👠',  color: '#F5A623' },
-  { id: 5,  name: 'Floral Wrap Dress',       price: 129, cat: 'Dresses',     tag: 'New',        emoji: '👗',  color: '#20C997' },
-  { id: 6,  name: 'Gold Pendant Necklace',   price: 89,  cat: 'Jewelry',     tag: 'Bestseller', emoji: '💎',  color: '#D6336C' },
-  { id: 7,  name: 'Suede Ankle Boots',       price: 165, cat: 'Shoes',       tag: 'New',        emoji: '👢',  color: '#8B1A4A' },
-  { id: 8,  name: 'Woven Straw Tote',        price: 69,  cat: 'Accessories', tag: 'Trending',   emoji: '👜',  color: '#F5A623' },
-  { id: 9,  name: 'Satin Midi Skirt',        price: 99,  cat: 'Dresses',     tag: 'Trending',   emoji: '👗',  color: '#B197FC' },
-  { id: 10, name: 'Chunky Gold Bracelet',    price: 75,  cat: 'Jewelry',     tag: 'New',        emoji: '💍',  color: '#F5A623' },
-  { id: 11, name: 'Platform Espadrilles',    price: 110, cat: 'Shoes',       tag: 'Bestseller', emoji: '👡',  color: '#20C997' },
-  { id: 12, name: 'Leather Crossbody Bag',   price: 135, cat: 'Accessories', tag: 'Limited',    emoji: '👜',  color: '#D6336C' },
+  { id: 1,  name: 'Kanchipuram Silk Saree',    price: 4999, cat: 'Sarees',      tag: 'New',        emoji: '🥻',  color: '#753580' },
+  { id: 2,  name: 'Banarasi Saree',            price: 3499, cat: 'Sarees',      tag: 'Bestseller', emoji: '🥻',  color: '#9B4DCA' },
+  { id: 3,  name: 'Designer Anarkali Kurti',   price: 1899, cat: 'Kurtis',      tag: 'Trending',   emoji: '👗',  color: '#753580' },
+  { id: 4,  name: 'Cotton Kurti Set',          price: 1299, cat: 'Kurtis',      tag: 'Bestseller', emoji: '👗',  color: '#E8A838' },
+  { id: 5,  name: 'Custom Bridal Lehenga',     price: 12999,cat: 'Custom Wear', tag: 'Custom',     emoji: '✂️',  color: '#9B4DCA' },
+  { id: 6,  name: 'Custom Blouse Stitching',   price: 999,  cat: 'Custom Wear', tag: 'Popular',    emoji: '✂️',  color: '#753580' },
+  { id: 7,  name: 'Silk Dupatta',              price: 2499, cat: 'Accessories', tag: 'New',        emoji: '🧣',  color: '#E8A838' },
+  { id: 8,  name: 'Embroidered Clutch',        price: 799,  cat: 'Accessories', tag: 'Trending',   emoji: '👜',  color: '#9B4DCA' },
+  { id: 9,  name: 'Pattu Saree',               price: 5999, cat: 'Sarees',      tag: 'Premium',    emoji: '🥻',  color: '#E8A838' },
+  { id: 10, name: 'Palazzo Kurti Set',         price: 1599, cat: 'Kurtis',      tag: 'New',        emoji: '👗',  color: '#20C997' },
+  { id: 11, name: 'Custom Churidar',           price: 1499, cat: 'Custom Wear', tag: 'Custom',     emoji: '✂️',  color: '#E8A838' },
+  { id: 12, name: 'Jhumka Earrings',           price: 599,  cat: 'Accessories', tag: 'Bestseller', emoji: '💎',  color: '#753580' },
 ]
 
-const categories = ['All', 'Dresses', 'Accessories', 'Shoes', 'Jewelry']
+const categories = ['All', 'Sarees', 'Kurtis', 'Custom Wear', 'Accessories']
 const sortOptions = ['Featured', 'Price: Low → High', 'Price: High → Low', 'Newest']
 
 export default function Products() {
@@ -108,7 +108,7 @@ export default function Products() {
                   <div className="product-card__info">
                     <span className="product-card__cat">{item.cat}</span>
                     <h3>{item.name}</h3>
-                    <strong>${item.price}</strong>
+                    <strong>₹{item.price.toLocaleString('en-IN')}</strong>
                   </div>
                 </div>
               </AnimSection>

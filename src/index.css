@@ -2,15 +2,15 @@
 
 :root {
   /* Core palette */
-  --velvet:       #8B1A4A;
-  --magenta:      #D6336C;
-  --coral:        #FF6B6B;
-  --gold:         #F5A623;
+  --velvet:       #753580;
+  --magenta:      #9B4DCA;
+  --coral:        #C77DBA;
+  --gold:         #E8A838;
   --teal:         #20C997;
-  --sky:          #4DABF7;
+  --sky:          #7C5CBF;
   --lavender:     #B197FC;
   --dark:         #1A1A2E;
-  --off-white:    #FFF8F0;
+  --off-white:    #FBF7FC;
   --white:        #FFFFFF;
   --gray-100:     #F8F9FA;
   --gray-200:     #E9ECEF;
@@ -19,9 +19,9 @@
   --gray-900:     #212529;
 
   /* Gradients */
-  --gradient-hero:    linear-gradient(135deg, #8B1A4A 0%, #D6336C 50%, #FF6B6B 100%);
-  --gradient-accent:  linear-gradient(135deg, #F5A623 0%, #FF6B6B 100%);
-  --gradient-cool:    linear-gradient(135deg, #4DABF7 0%, #B197FC 100%);
+  --gradient-hero:    linear-gradient(135deg, #753580 0%, #9B4DCA 50%, #C77DBA 100%);
+  --gradient-accent:  linear-gradient(135deg, #E8A838 0%, #C77DBA 100%);
+  --gradient-cool:    linear-gradient(135deg, #7C5CBF 0%, #B197FC 100%);
 
   /* Typography */
   --font-heading: 'Playfair Display', Georgia, serif;

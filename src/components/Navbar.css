@@ -34,23 +34,14 @@
 
 .navbar__logo:hover { transform: scale(1.03); }
 
-.logo-icon {
-  font-size: 1.4rem;
-  background: var(--gradient-hero);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.navbar__logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
 }
 
-.logo-text {
-  color: var(--velvet);
-}
-
-.navbar.scrolled .logo-text { color: var(--velvet); }
-
-.logo-accent {
-  color: var(--magenta);
-  font-weight: 400;
+.navbar.scrolled .navbar__logo-img {
+  height: 36px;
 }
 
 /* Nav Links */
