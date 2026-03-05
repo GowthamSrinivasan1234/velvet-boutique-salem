@@ -28,7 +28,7 @@ export default function Contact() {
   const CALLMEBOT_APIKEY = 'YOUR_CALLMEBOT_API_KEY' // Replace with your CallMeBot API key
 
   // Web3Forms Configuration - Get your access key at https://web3forms.com/
-  const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY' // Replace with your Web3Forms access key
+  const WEB3FORMS_ACCESS_KEY = '3ce650ee-baca-4418-9706-13fd6550bf18' // Replace with your Web3Forms access key
 
   const handleSubmit = async e => {
     e.preventDefault()
