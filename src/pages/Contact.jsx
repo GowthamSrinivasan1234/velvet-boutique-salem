@@ -27,12 +27,38 @@ export default function Contact() {
   const CALLMEBOT_PHONE = '919345188551' // Your WhatsApp number (without +)
   const CALLMEBOT_APIKEY = 'YOUR_CALLMEBOT_API_KEY' // Replace with your CallMeBot API key
 
+  // Web3Forms Configuration - Get your access key at https://web3forms.com/
+  const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY' // Replace with your Web3Forms access key
+
   const handleSubmit = async e => {
     e.preventDefault()
     setLoading(true)
     setError('')
 
     try {
+      // Send email notification via Web3Forms
+      if (WEB3FORMS_ACCESS_KEY !== 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        const emailResponse = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `New Contact Form: ${form.subject}`,
+            from_name: 'Velvet Boutique Website',
+            name: form.name,
+            email: form.email,
+            phone: form.phone,
+            message: form.message || 'No message provided',
+          }),
+        })
+        const emailResult = await emailResponse.json()
+        if (!emailResult.success) {
+          setError('Unable to send message. Please try again.')
+          setLoading(false)
+          return
+        }
+      }
+
       // Create WhatsApp notification message
       const whatsappMsg = `🛍️ *New Contact Form Submission*\n\n👤 *Name:* ${form.name}\n📧 *Email:* ${form.email}\n📞 *Phone:* ${form.phone}\n📋 *Subject:* ${form.subject}\n💬 *Message:* ${form.message || 'Not provided'}`
       
@@ -43,10 +69,12 @@ export default function Contact() {
         }).catch(() => {}) // Silent fail - notification is best-effort
       }
 
-      // Show success immediately (don't wait for CallMeBot response due to CORS)
+      // Show success
       setSubmitted(true)
       setTimeout(() => setSubmitted(false), 5000)
       setForm({ name: '', email: '', phone: '', subject: '', message: '' })
+    } catch (err) {
+      setError('Unable to submit. Please try again later.')
     } finally {
       setLoading(false)
     }
