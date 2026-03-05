@@ -16,7 +16,7 @@ export default function Footer() {
             <h3 className="footer__logo">
               <img src="/images/logo-white.png" alt="Velvet Boutique" className="footer__logo-img" />
             </h3>
-            <p>Her Store Her Style — designer sarees, custom stitching & aari embroidery. Your women-owned boutique in Salem, Tamil Nadu.</p>
+            <p>Her Store Her Style — custom stitching, aari embroidery & fashion jewellery. Your women-owned boutique in Salem, Tamil Nadu.</p>
             <div className="footer__socials">
               <a href="https://www.instagram.com/velvet_boutique_salem/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">I</a>
               <a href="https://www.google.com/maps/place/Velvet+Boutique/@11.6761752,78.1437772,924m" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Google Maps">G</a>

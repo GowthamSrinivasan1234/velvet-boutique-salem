@@ -49,8 +49,8 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <Link to="/products" className="btn btn-primary navbar__cta" onClick={(e) => handleNavClick(e, '/products')}>
-            Shop Now
+          <Link to="/contact" className="btn btn-primary navbar__cta" onClick={(e) => handleNavClick(e, '/contact')}>
+            Contact Now
           </Link>
         </nav>
 
