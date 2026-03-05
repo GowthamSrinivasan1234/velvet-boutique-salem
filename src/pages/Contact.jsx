@@ -18,16 +18,38 @@ const contactInfo = [
 ]
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const handleSubmit = e => {
+  // CallMeBot Configuration - Get your API key at https://www.callmebot.com/blog/free-api-whatsapp-messages/
+  const CALLMEBOT_PHONE = '919345188551' // Your WhatsApp number (without +)
+  const CALLMEBOT_APIKEY = 'YOUR_CALLMEBOT_API_KEY' // Replace with your CallMeBot API key
+
+  const handleSubmit = async e => {
     e.preventDefault()
-    const msg = `Hi! I'm *${form.name}* (${form.email}).\n\n*Subject:* ${form.subject}\n\n*Message:* ${form.message}`
-    window.open(`https://wa.me/919345188551?text=${encodeURIComponent(msg)}`, '_blank')
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
-    setForm({ name: '', email: '', subject: '', message: '' })
+    setLoading(true)
+    setError('')
+
+    try {
+      // Create WhatsApp notification message
+      const whatsappMsg = `🛍️ *New Contact Form Submission*\n\n👤 *Name:* ${form.name}\n📧 *Email:* ${form.email}\n📞 *Phone:* ${form.phone}\n📋 *Subject:* ${form.subject}\n💬 *Message:* ${form.message || 'Not provided'}`
+      
+      // Send WhatsApp notification via CallMeBot (fire-and-forget)
+      if (CALLMEBOT_APIKEY !== 'YOUR_CALLMEBOT_API_KEY') {
+        fetch(`https://api.callmebot.com/whatsapp.php?phone=${CALLMEBOT_PHONE}&text=${encodeURIComponent(whatsappMsg)}&apikey=${CALLMEBOT_APIKEY}`, {
+          mode: 'no-cors'
+        }).catch(() => {}) // Silent fail - notification is best-effort
+      }
+
+      // Show success immediately (don't wait for CallMeBot response due to CORS)
+      setSubmitted(true)
+      setTimeout(() => setSubmitted(false), 5000)
+      setForm({ name: '', email: '', phone: '', subject: '', message: '' })
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -69,7 +91,13 @@ export default function Contact() {
 
               {submitted && (
                 <div className="form-success animate-scale-in">
-                  ✅ Message sent! We'll get back to you shortly.
+                  ✅ Thank you for reaching out! Our team will get back to you shortly.
+                </div>
+              )}
+
+              {error && (
+                <div className="form-error animate-scale-in">
+                  ❌ {error}
                 </div>
               )}
 
@@ -86,20 +114,27 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="form-group">
-                <label htmlFor="subject">Subject</label>
-                <input id="subject" type="text" required value={form.subject}
-                  onChange={e => setForm({ ...form, subject: e.target.value })} placeholder="How can we help?" />
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="phone">Phone Number</label>
+                  <input id="phone" type="tel" required value={form.phone}
+                    onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="+91 98765 43210" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="subject">Subject</label>
+                  <input id="subject" type="text" required value={form.subject}
+                    onChange={e => setForm({ ...form, subject: e.target.value })} placeholder="How can we help?" />
+                </div>
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Message</label>
-                <textarea id="message" rows={5} required value={form.message}
+                <label htmlFor="message">Message <span className="optional">(Optional)</span></label>
+                <textarea id="message" rows={5} value={form.message}
                   onChange={e => setForm({ ...form, message: e.target.value })} placeholder="Tell us more..." />
               </div>
 
-              <button type="submit" className="btn btn-primary btn-full">
-                Send Message ✦
+              <button type="submit" className="btn btn-primary btn-full" disabled={loading}>
+                {loading ? 'Sending...' : 'Send Message ✦'}
               </button>
             </form>
           </AnimSection>

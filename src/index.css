@@ -120,6 +120,12 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 8px 25px rgba(139, 26, 74, 0.5);
 }
 
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
 .btn-outline {
   background: transparent;
   color: var(--velvet);
