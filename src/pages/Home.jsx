@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
 import useInView from '../hooks/useInView'
+import { getAnnouncementConfig } from '../components/AnnouncementBar'
 import './Home.css'
+
+/* ── Get announcement config ── */
+const announcement = getAnnouncementConfig()
 
 /* ── Reusable animated section wrapper ── */
 function AnimSection({ children, className = '', delay = 0 }) {
@@ -48,7 +52,21 @@ export default function Home() {
   return (
     <>
       {/* ═══ HERO ═══ */}
-      <section className="hero">
+      <section className="hero" style={{ '--hero-bg': `url(${announcement.heroBackground})` }}>
+        {/* Background Image */}
+        <div className="hero__bg-image" />
+        
+        {/* Special Day Overlay (Blur Background) */}
+        {announcement.specialDay?.enabled && (
+          <div className="hero__special-overlay">
+            <div className="hero__special-content">
+              <span className="hero__special-title">{announcement.specialDay.title}</span>
+              <span className="hero__special-subtitle">{announcement.specialDay.subtitle}</span>
+              <span className="hero__special-discount">{announcement.specialDay.discount}</span>
+            </div>
+          </div>
+        )}
+        
         <div className="hero__bg-shapes">
           <div className="shape shape--1" />
           <div className="shape shape--2" />

@@ -1,0 +1,106 @@
+/* ===== Announcement Bar ===== */
+.announcement-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  background: linear-gradient(90deg, var(--velvet), var(--magenta));
+  color: white;
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.announcement-bar__content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.announcement-bar__message {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.announcement-bar__link {
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.3rem 0.8rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  transition: background 0.3s ease;
+}
+
+.announcement-bar__link:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.announcement-bar__close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.3rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  position: absolute;
+  right: 1rem;
+}
+
+.announcement-bar__close:hover {
+  opacity: 1;
+}
+
+/* Adjust navbar when announcement bar is visible */
+body:has(.announcement-bar) .navbar {
+  top: 42px;
+}
+
+body:has(.announcement-bar) .hero,
+body:has(.announcement-bar) .blog-hero,
+body:has(.announcement-bar) .about-hero,
+body:has(.announcement-bar) .products-hero,
+body:has(.announcement-bar) .contact-hero {
+  padding-top: 12rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .announcement-bar {
+    padding: 0.6rem 2.5rem 0.6rem 1rem;
+  }
+  
+  .announcement-bar__message {
+    font-size: 0.8rem;
+  }
+  
+  .announcement-bar__link {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+  }
+  
+  body:has(.announcement-bar) .navbar {
+    top: 38px;
+  }
+}

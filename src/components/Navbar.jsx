@@ -23,10 +23,18 @@ export default function Navbar() {
 
   useEffect(() => setMenuOpen(false), [location])
 
+  // Handle nav link click - scroll to top if same page
+  const handleNavClick = (e, path) => {
+    if (location.pathname === path) {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
   return (
     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar__inner container">
-        <Link to="/" className="navbar__logo">
+        <Link to="/" className="navbar__logo" onClick={(e) => handleNavClick(e, '/')}>
           <img src="/images/logo.png" alt="Velvet Boutique" className="navbar__logo-img" />
         </Link>
 
@@ -36,11 +44,12 @@ export default function Navbar() {
               key={path}
               to={path}
               className={`navbar__link ${location.pathname === path ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, path)}
             >
               {label}
             </Link>
           ))}
-          <Link to="/products" className="btn btn-primary navbar__cta">
+          <Link to="/products" className="btn btn-primary navbar__cta" onClick={(e) => handleNavClick(e, '/products')}>
             Shop Now
           </Link>
         </nav>
