@@ -207,7 +207,7 @@ export default function Home() {
               <p>Follow us on Instagram for new arrivals, styling tips, and exclusive offers. Join thousands of happy customers!</p>
               <div className="cta-actions">
                 <a href="https://www.instagram.com/velvet_boutique_salem/" target="_blank" rel="noopener noreferrer" className="btn btn-accent">Follow on Instagram ✦</a>
-                <a href="https://www.google.com/maps/place/Velvet+Boutique/@11.6761752,78.1437772" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{borderColor:'#fff',color:'#fff'}}>Visit Our Store →</a>
+                <a href="https://www.google.com/maps/place/Velvet+Boutique/@11.6761752,78.1437772,17z/data=!3m1!4b1!4m6!3m5!1s0x3babf100730a1599:0x28c14b12d5a3a568!8m2!3d11.6761752!4d78.1437772!16s%2Fg%2F11t3_0pqzf" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{borderColor:'#fff',color:'#fff'}}>Visit Our Store →</a>
               </div>
             </div>
           </AnimSection>
