@@ -163,3 +163,83 @@
   .blog-featured { grid-template-columns: 1fr; }
   .blog-featured__content { padding: 2rem; }
 }
+
+/* ===== Loading State ===== */
+.blog-loading {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.blog-loading__spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--gray-200);
+  border-top-color: var(--magenta);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.blog-loading p {
+  color: var(--gray-500);
+  font-size: 1.1rem;
+}
+
+/* ===== Error State ===== */
+.blog-error {
+  text-align: center;
+  padding: 1rem 2rem;
+  background: #FFF3CD;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.blog-error p {
+  color: #856404;
+  margin: 0;
+}
+
+/* ===== Empty State ===== */
+.blog-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--gray-100);
+  border-radius: 16px;
+}
+
+.blog-empty p {
+  color: var(--gray-500);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* ===== Card Link ===== */
+.blog-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* ===== Real Image Styles ===== */
+.blog-featured__img--real,
+.blog-card__img--real {
+  background: var(--gray-100);
+  overflow: hidden;
+}
+
+.blog-featured__img--real img,
+.blog-card__img--real img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s var(--ease);
+}
+
+.blog-featured:hover .blog-featured__img--real img,
+.blog-card:hover .blog-card__img--real img {
+  transform: scale(1.05);
+}

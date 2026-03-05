@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import useInView from '../hooks/useInView'
 import './Blog.css'
 
@@ -10,75 +10,172 @@ function AnimSection({ children, className = '', delay = 0 }) {
   )
 }
 
-const blogPosts = [
+// RSS Feed sources for different categories
+const RSS_FEEDS = [
+  { url: 'https://www.vogue.com/feed/rss', category: 'Fashion Trends', emoji: '👗', color: '#D6336C' },
+  { url: 'https://www.elle.com/rss/all.xml/', category: 'Style News', emoji: '💄', color: '#8B1A4A' },
+  { url: 'https://www.harpersbazaar.com/rss/all.xml/', category: 'Luxury Fashion', emoji: '💎', color: '#B197FC' },
+  { url: 'https://www.refinery29.com/en-us/fashion/rss.xml', category: 'Trends', emoji: '🌸', color: '#F5A623' },
+  { url: 'https://fashionista.com/.rss/full/', category: 'Industry News', emoji: '🏬', color: '#4DABF7' },
+]
+
+// Fallback static posts (shown when API fails)
+const fallbackPosts = [
   {
-    id: 1,
-    title: '10 Spring Trends You Need to Know',
-    excerpt: 'From bold florals to statement sleeves, here are the must-have trends that will dominate this season and beyond.',
-    date: 'Mar 1, 2026',
-    category: 'Trends',
-    readTime: '5 min read',
+    id: 'f1',
+    title: 'Spring 2026: Bold Colors Take Center Stage',
+    excerpt: 'From vibrant pinks to electric blues, this season\'s runways are all about making a statement with color.',
+    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+    category: 'Fashion Trends',
+    readTime: '4 min read',
     emoji: '🌸',
     color: '#D6336C',
+    link: 'https://www.vogue.com/fashion',
   },
   {
-    id: 2,
-    title: 'How to Build a Capsule Wardrobe',
-    excerpt: 'Simplify your style without sacrificing personality. Our step-by-step guide to a wardrobe that works harder.',
-    date: 'Feb 20, 2026',
-    category: 'Style Tips',
-    readTime: '7 min read',
-    emoji: '👗',
-    color: '#8B1A4A',
-  },
-  {
-    id: 3,
-    title: 'Accessorizing 101: From Day to Night',
-    excerpt: 'Transform any outfit with the right accessories. Learn the art of layering necklaces, mixing metals, and more.',
-    date: 'Feb 14, 2026',
-    category: 'Guides',
-    readTime: '4 min read',
-    emoji: '💎',
-    color: '#B197FC',
-  },
-  {
-    id: 4,
-    title: 'Sustainable Fashion: Our Commitment',
-    excerpt: 'Fashion shouldn\'t cost the earth. Discover how Velvet Boutique is leading the charge towards greener fashion.',
-    date: 'Feb 5, 2026',
-    category: 'Sustainability',
+    id: 'f2',
+    title: 'Women Leading the Fashion Industry Revolution',
+    excerpt: 'Meet the female designers, CEOs, and creatives who are reshaping the future of fashion.',
+    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+    category: 'Women Power',
     readTime: '6 min read',
+    emoji: '💪',
+    color: '#8B1A4A',
+    link: 'https://www.elle.com/fashion/',
+  },
+  {
+    id: 'f3',
+    title: 'Sustainable Fashion: The $350 Billion Opportunity',
+    excerpt: 'The global fashion industry is pivoting towards sustainability. Here\'s what you need to know.',
+    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+    category: 'Industry Facts',
+    readTime: '5 min read',
     emoji: '🌿',
     color: '#20C997',
+    link: 'https://www.harpersbazaar.com/fashion/',
   },
   {
-    id: 5,
-    title: 'Behind the Scenes: Our NYC Flagship',
-    excerpt: 'A look inside our new Fashion Avenue store — from the pink velvet fitting rooms to the champagne bar.',
-    date: 'Jan 28, 2026',
-    category: 'News',
-    readTime: '3 min read',
-    emoji: '🏬',
+    id: 'f4',
+    title: 'Indian Designers Making Waves Globally',
+    excerpt: 'From Sabyasachi to Manish Malhotra, Indian fashion is captivating the world stage.',
+    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+    category: 'Style News',
+    readTime: '4 min read',
+    emoji: '🇮🇳',
     color: '#F5A623',
-  },
-  {
-    id: 6,
-    title: 'Color Theory: Dressing for Your Palette',
-    excerpt: 'Find your best colors and learn how to create harmonious outfits that make your complexion glow.',
-    date: 'Jan 15, 2026',
-    category: 'Style Tips',
-    readTime: '8 min read',
-    emoji: '🎨',
-    color: '#4DABF7',
+    link: 'https://www.vogue.in/fashion',
   },
 ]
 
-const categories = ['All', 'Trends', 'Style Tips', 'Guides', 'Community', 'News']
+const categories = ['All', 'Fashion Trends', 'Style News', 'Industry Facts', 'Women Power', 'Luxury Fashion']
+
+// Helper to calculate read time
+const getReadTime = (text) => {
+  const words = text?.split(' ').length || 100
+  const minutes = Math.ceil(words / 200)
+  return `${minutes} min read`
+}
+
+// Helper to format date
+const formatDate = (dateStr) => {
+  try {
+    return new Date(dateStr).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  } catch {
+    return new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  }
+}
+
+// Helper to get emoji based on content
+const getEmoji = (title = '', category = '') => {
+  const text = (title + category).toLowerCase()
+  if (text.includes('women') || text.includes('female') || text.includes('girl')) return '💪'
+  if (text.includes('sustainable') || text.includes('eco') || text.includes('green')) return '🌿'
+  if (text.includes('luxury') || text.includes('designer')) return '💎'
+  if (text.includes('trend') || text.includes('spring') || text.includes('summer')) return '🌸'
+  if (text.includes('beauty') || text.includes('makeup')) return '💄'
+  if (text.includes('accessory') || text.includes('jewelry') || text.includes('bag')) return '👜'
+  if (text.includes('runway') || text.includes('show') || text.includes('week')) return '🏬'
+  if (text.includes('celeb') || text.includes('star')) return '⭐'
+  return '👗'
+}
+
+// Helper to get color based on category
+const getColor = (category) => {
+  const colors = {
+    'Fashion Trends': '#D6336C',
+    'Style News': '#8B1A4A',
+    'Industry Facts': '#20C997',
+    'Women Power': '#B197FC',
+    'Luxury Fashion': '#F5A623',
+    'Trends': '#D6336C',
+  }
+  return colors[category] || '#4DABF7'
+}
 
 export default function Blog() {
   const [activeCat, setActiveCat] = useState('All')
+  const [posts, setPosts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
-  const filtered = activeCat === 'All' ? blogPosts : blogPosts.filter(p => p.category === activeCat)
+  useEffect(() => {
+    const fetchNews = async () => {
+      setLoading(true)
+      try {
+        // Use rss2json API to convert RSS feeds to JSON
+        const RSS2JSON_API = 'https://api.rss2json.com/v1/api.json?rss_url='
+        
+        // Fetch from multiple sources in parallel
+        const feedPromises = RSS_FEEDS.map(async (feed) => {
+          try {
+            const response = await fetch(`${RSS2JSON_API}${encodeURIComponent(feed.url)}`)
+            const data = await response.json()
+            
+            if (data.status === 'ok' && data.items) {
+              return data.items.slice(0, 3).map((item, idx) => ({
+                id: `${feed.category}-${idx}-${Date.now()}`,
+                title: item.title,
+                excerpt: item.description?.replace(/<[^>]*>/g, '').substring(0, 150) + '...',
+                date: formatDate(item.pubDate),
+                category: feed.category,
+                readTime: getReadTime(item.description),
+                emoji: getEmoji(item.title, feed.category),
+                color: feed.color,
+                link: item.link,
+                thumbnail: item.thumbnail || item.enclosure?.link || null,
+              }))
+            }
+            return []
+          } catch {
+            return []
+          }
+        })
+
+        const results = await Promise.all(feedPromises)
+        const allPosts = results.flat().filter(post => post.title && post.link)
+        
+        // Shuffle and limit posts
+        const shuffled = allPosts.sort(() => Math.random() - 0.5).slice(0, 12)
+        
+        if (shuffled.length > 0) {
+          setPosts(shuffled)
+        } else {
+          setPosts(fallbackPosts)
+        }
+        setError(false)
+      } catch (err) {
+        console.error('Failed to fetch news:', err)
+        setPosts(fallbackPosts)
+        setError(true)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchNews()
+  }, [])
+
+  const filtered = activeCat === 'All' ? posts : posts.filter(p => p.category === activeCat)
 
   return (
     <>
@@ -86,12 +183,12 @@ export default function Blog() {
       <section className="blog-hero">
         <div className="container">
           <AnimSection>
-            <span className="hero__badge">✦ Style Journal</span>
+            <span className="hero__badge">✦ Live Fashion News</span>
             <h1 className="blog-hero__title">
               The Velvet <span className="blog-hero__accent">Journal</span>
             </h1>
             <p className="blog-hero__desc">
-              Trends, tips, and behind-the-scenes stories from the world of Velvet Boutique.
+              Latest fashion trends, industry updates, and women empowerment stories — updated daily.
             </p>
           </AnimSection>
         </div>
@@ -112,13 +209,34 @@ export default function Blog() {
             ))}
           </div>
 
+          {/* ── Loading State ── */}
+          {loading && (
+            <div className="blog-loading">
+              <div className="blog-loading__spinner"></div>
+              <p>Fetching latest fashion news...</p>
+            </div>
+          )}
+
+          {/* ── Error State ── */}
+          {error && !loading && (
+            <div className="blog-error">
+              <p>📡 Showing curated articles. Live feed will update shortly.</p>
+            </div>
+          )}
+
           {/* ── Featured Post ── */}
-          {filtered.length > 0 && (
+          {!loading && filtered.length > 0 && (
             <AnimSection>
               <article className="blog-featured" style={{ '--accent': filtered[0].color }}>
-                <div className="blog-featured__img">
-                  <span>{filtered[0].emoji}</span>
-                </div>
+                {filtered[0].thumbnail ? (
+                  <div className="blog-featured__img blog-featured__img--real">
+                    <img src={filtered[0].thumbnail} alt={filtered[0].title} />
+                  </div>
+                ) : (
+                  <div className="blog-featured__img">
+                    <span>{filtered[0].emoji}</span>
+                  </div>
+                )}
                 <div className="blog-featured__content">
                   <div className="blog-card__meta">
                     <span className="blog-card__cat">{filtered[0].category}</span>
@@ -127,33 +245,52 @@ export default function Blog() {
                   </div>
                   <h2>{filtered[0].title}</h2>
                   <p>{filtered[0].excerpt}</p>
-                  <button className="btn btn-primary">Read Article →</button>
+                  <a href={filtered[0].link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                    Read Article →
+                  </a>
                 </div>
               </article>
             </AnimSection>
           )}
 
           {/* ── Grid ── */}
-          <div className="blog-grid">
-            {filtered.slice(1).map((post, i) => (
-              <AnimSection key={post.id} delay={i * 0.1}>
-                <article className="blog-card" style={{ '--accent': post.color }}>
-                  <div className="blog-card__img">
-                    <span>{post.emoji}</span>
-                  </div>
-                  <div className="blog-card__body">
-                    <div className="blog-card__meta">
-                      <span className="blog-card__cat">{post.category}</span>
-                      <span>{post.date}</span>
-                    </div>
-                    <h3>{post.title}</h3>
-                    <p>{post.excerpt}</p>
-                    <span className="blog-card__read">Read more →</span>
-                  </div>
-                </article>
-              </AnimSection>
-            ))}
-          </div>
+          {!loading && (
+            <div className="blog-grid">
+              {filtered.slice(1).map((post, i) => (
+                <AnimSection key={post.id} delay={i * 0.1}>
+                  <a href={post.link} target="_blank" rel="noopener noreferrer" className="blog-card-link">
+                    <article className="blog-card" style={{ '--accent': post.color }}>
+                      {post.thumbnail ? (
+                        <div className="blog-card__img blog-card__img--real">
+                          <img src={post.thumbnail} alt={post.title} />
+                        </div>
+                      ) : (
+                        <div className="blog-card__img">
+                          <span>{post.emoji}</span>
+                        </div>
+                      )}
+                      <div className="blog-card__body">
+                        <div className="blog-card__meta">
+                          <span className="blog-card__cat">{post.category}</span>
+                          <span>{post.date}</span>
+                        </div>
+                        <h3>{post.title}</h3>
+                        <p>{post.excerpt}</p>
+                        <span className="blog-card__read">Read more →</span>
+                      </div>
+                    </article>
+                  </a>
+                </AnimSection>
+              ))}
+            </div>
+          )}
+
+          {/* ── No Results ── */}
+          {!loading && filtered.length === 0 && (
+            <div className="blog-empty">
+              <p>No articles found in this category. Try selecting "All" to see all news.</p>
+            </div>
+          )}
         </div>
       </section>
     </>
