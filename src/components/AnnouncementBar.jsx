@@ -9,22 +9,22 @@ const ANNOUNCEMENTS = {
   enabled: true,
   
   // Main announcement bar message
-  message: "🌸 Happy Women's Day! Flat 20% OFF on all collections — Use code: WOMEN20",
+  message: "🌸 Happy Women's Day! Here's to strong women — may we know them, be them, raise them ✨",
   
   // Link (optional) - set to null if no link needed
-  link: '/products',
-  linkText: 'Shop Now',
+  link: null,
+  linkText: '',
   
   // Special day background overlay for hero (shows behind hero content)
   specialDay: {
-    enabled: true,
+    enabled: false,
     title: "Happy Women's Day",
     subtitle: "Celebrating the strength & grace of every woman",
-    discount: "FLAT 20% OFF",
+    discount: "",
   },
   
   // Background image for hero section (from Unsplash)
-  heroBackground: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80',
+  heroBackground: '',
 }
 
 // Export for use in other components
