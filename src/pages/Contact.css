@@ -101,6 +101,22 @@
   margin-bottom: 1.5rem;
 }
 
+.form-error {
+  padding: 1rem 1.5rem;
+  background: #FFE3E3;
+  border: 1px solid #FFA8A8;
+  border-radius: 12px;
+  color: #C92A2A;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--gray-400);
+  font-size: 0.85rem;
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
