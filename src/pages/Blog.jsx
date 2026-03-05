@@ -10,63 +10,19 @@ function AnimSection({ children, className = '', delay = 0 }) {
   )
 }
 
-// RSS Feed sources for different categories
+// RSS Feed sources - Using reliable feeds that work with rss2json
 const RSS_FEEDS = [
-  { url: 'https://www.vogue.com/feed/rss', category: 'Fashion Trends', emoji: '👗', color: '#D6336C' },
-  { url: 'https://www.elle.com/rss/all.xml/', category: 'Style News', emoji: '💄', color: '#8B1A4A' },
-  { url: 'https://www.harpersbazaar.com/rss/all.xml/', category: 'Luxury Fashion', emoji: '💎', color: '#B197FC' },
-  { url: 'https://www.refinery29.com/en-us/fashion/rss.xml', category: 'Trends', emoji: '🌸', color: '#F5A623' },
-  { url: 'https://fashionista.com/.rss/full/', category: 'Industry News', emoji: '🏬', color: '#4DABF7' },
+  // Fashion & Style News
+  { url: 'https://www.businessoffashion.com/feed', category: 'Industry Facts', emoji: '📊', color: '#20C997' },
+  { url: 'https://wwd.com/feed/', category: 'Style News', emoji: '💄', color: '#8B1A4A' },
+  { url: 'https://www.thecut.com/tags/fashion/rss', category: 'Fashion Trends', emoji: '👗', color: '#D6336C' },
+  { url: 'https://fashionista.com/.rss/full/', category: 'Style News', emoji: '✨', color: '#F5A623' },
+  // Women Empowerment & Lifestyle
+  { url: 'https://www.forbes.com/women/feed/', category: 'Women Power', emoji: '💪', color: '#B197FC' },
+  { url: 'https://www.glamour.com/feed/rss', category: 'Luxury Fashion', emoji: '💎', color: '#E8A838' },
 ]
 
-// Fallback static posts (shown when API fails)
-const fallbackPosts = [
-  {
-    id: 'f1',
-    title: 'Spring 2026: Bold Colors Take Center Stage',
-    excerpt: 'From vibrant pinks to electric blues, this season\'s runways are all about making a statement with color.',
-    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-    category: 'Fashion Trends',
-    readTime: '4 min read',
-    emoji: '🌸',
-    color: '#D6336C',
-    link: 'https://www.vogue.com/fashion',
-  },
-  {
-    id: 'f2',
-    title: 'Women Leading the Fashion Industry Revolution',
-    excerpt: 'Meet the female designers, CEOs, and creatives who are reshaping the future of fashion.',
-    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-    category: 'Women Power',
-    readTime: '6 min read',
-    emoji: '💪',
-    color: '#8B1A4A',
-    link: 'https://www.elle.com/fashion/',
-  },
-  {
-    id: 'f3',
-    title: 'Sustainable Fashion: The $350 Billion Opportunity',
-    excerpt: 'The global fashion industry is pivoting towards sustainability. Here\'s what you need to know.',
-    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-    category: 'Industry Facts',
-    readTime: '5 min read',
-    emoji: '🌿',
-    color: '#20C997',
-    link: 'https://www.harpersbazaar.com/fashion/',
-  },
-  {
-    id: 'f4',
-    title: 'Indian Designers Making Waves Globally',
-    excerpt: 'From Sabyasachi to Manish Malhotra, Indian fashion is captivating the world stage.',
-    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-    category: 'Style News',
-    readTime: '4 min read',
-    emoji: '🇮🇳',
-    color: '#F5A623',
-    link: 'https://www.vogue.in/fashion',
-  },
-]
-
+// Categories for tabs
 const categories = ['All', 'Fashion Trends', 'Style News', 'Industry Facts', 'Women Power', 'Luxury Fashion']
 
 // Helper to calculate read time
@@ -85,18 +41,53 @@ const formatDate = (dateStr) => {
   }
 }
 
-// Helper to get emoji based on content
-const getEmoji = (title = '', category = '') => {
-  const text = (title + category).toLowerCase()
-  if (text.includes('women') || text.includes('female') || text.includes('girl')) return '💪'
-  if (text.includes('sustainable') || text.includes('eco') || text.includes('green')) return '🌿'
-  if (text.includes('luxury') || text.includes('designer')) return '💎'
-  if (text.includes('trend') || text.includes('spring') || text.includes('summer')) return '🌸'
-  if (text.includes('beauty') || text.includes('makeup')) return '💄'
-  if (text.includes('accessory') || text.includes('jewelry') || text.includes('bag')) return '👜'
-  if (text.includes('runway') || text.includes('show') || text.includes('week')) return '🏬'
-  if (text.includes('celeb') || text.includes('star')) return '⭐'
-  return '👗'
+// Smart categorization based on article content
+const smartCategorize = (title = '', description = '', defaultCategory = 'Style News') => {
+  const text = (title + ' ' + description).toLowerCase()
+  
+  // Women Power keywords
+  if (text.includes('women') || text.includes('female') || text.includes('woman') || 
+      text.includes('girl power') || text.includes('feminist') || text.includes('empowerment') ||
+      text.includes('ceo') || text.includes('leader') || text.includes('entrepreneur')) {
+    return 'Women Power'
+  }
+  
+  // Industry Facts keywords
+  if (text.includes('billion') || text.includes('million') || text.includes('market') ||
+      text.includes('industry') || text.includes('business') || text.includes('revenue') ||
+      text.includes('report') || text.includes('statistics') || text.includes('growth') ||
+      text.includes('economy') || text.includes('investment') || text.includes('sales')) {
+    return 'Industry Facts'
+  }
+  
+  // Luxury Fashion keywords
+  if (text.includes('luxury') || text.includes('designer') || text.includes('couture') ||
+      text.includes('gucci') || text.includes('chanel') || text.includes('louis vuitton') ||
+      text.includes('prada') || text.includes('dior') || text.includes('hermès') ||
+      text.includes('high-end') || text.includes('exclusive')) {
+    return 'Luxury Fashion'
+  }
+  
+  // Fashion Trends keywords
+  if (text.includes('trend') || text.includes('spring') || text.includes('summer') ||
+      text.includes('fall') || text.includes('winter') || text.includes('season') ||
+      text.includes('runway') || text.includes('collection') || text.includes('fashion week')) {
+    return 'Fashion Trends'
+  }
+  
+  return defaultCategory
+}
+
+// Helper to get emoji based on category
+const getEmoji = (category) => {
+  const emojis = {
+    'Fashion Trends': '👗',
+    'Style News': '✨',
+    'Industry Facts': '📊',
+    'Women Power': '💪',
+    'Luxury Fashion': '💎',
+  }
+  return emojis[category] || '👗'
 }
 
 // Helper to get color based on category
@@ -107,7 +98,6 @@ const getColor = (category) => {
     'Industry Facts': '#20C997',
     'Women Power': '#B197FC',
     'Luxury Fashion': '#F5A623',
-    'Trends': '#D6336C',
   }
   return colors[category] || '#4DABF7'
 }
@@ -132,41 +122,75 @@ export default function Blog() {
             const data = await response.json()
             
             if (data.status === 'ok' && data.items) {
-              return data.items.slice(0, 3).map((item, idx) => ({
-                id: `${feed.category}-${idx}-${Date.now()}`,
-                title: item.title,
-                excerpt: item.description?.replace(/<[^>]*>/g, '').substring(0, 150) + '...',
-                date: formatDate(item.pubDate),
-                category: feed.category,
-                readTime: getReadTime(item.description),
-                emoji: getEmoji(item.title, feed.category),
-                color: feed.color,
-                link: item.link,
-                thumbnail: item.thumbnail || item.enclosure?.link || null,
-              }))
+              return data.items.slice(0, 5).map((item, idx) => {
+                const description = item.description?.replace(/<[^>]*>/g, '') || ''
+                const category = smartCategorize(item.title, description, feed.category)
+                return {
+                  id: `${feed.category}-${idx}-${Date.now()}-${Math.random()}`,
+                  title: item.title,
+                  excerpt: description.substring(0, 150) + (description.length > 150 ? '...' : ''),
+                  date: formatDate(item.pubDate),
+                  category: category,
+                  readTime: getReadTime(description),
+                  emoji: getEmoji(category),
+                  color: getColor(category),
+                  link: item.link,
+                  thumbnail: item.thumbnail || item.enclosure?.link || null,
+                  source: data.feed?.title || 'Fashion News',
+                }
+              })
             }
             return []
-          } catch {
+          } catch (err) {
+            console.log(`Failed to fetch from ${feed.url}:`, err)
             return []
           }
         })
 
         const results = await Promise.all(feedPromises)
-        const allPosts = results.flat().filter(post => post.title && post.link)
+        let allPosts = results.flat().filter(post => post.title && post.link)
         
-        // Shuffle and limit posts
-        const shuffled = allPosts.sort(() => Math.random() - 0.5).slice(0, 12)
+        // Ensure we have posts for each category
+        const postsByCategory = {}
+        categories.forEach(cat => {
+          if (cat !== 'All') {
+            postsByCategory[cat] = allPosts.filter(p => p.category === cat)
+          }
+        })
+        
+        // If any category is empty, redistribute some posts
+        const emptyCategories = Object.keys(postsByCategory).filter(cat => postsByCategory[cat].length === 0)
+        const fullCategories = Object.keys(postsByCategory).filter(cat => postsByCategory[cat].length > 2)
+        
+        emptyCategories.forEach((emptyCat, idx) => {
+          if (fullCategories.length > idx) {
+            const sourceCat = fullCategories[idx]
+            // Take one post and reassign its category
+            const postToMove = postsByCategory[sourceCat].pop()
+            if (postToMove) {
+              postToMove.category = emptyCat
+              postToMove.emoji = getEmoji(emptyCat)
+              postToMove.color = getColor(emptyCat)
+              postsByCategory[emptyCat] = [postToMove]
+            }
+          }
+        })
+        
+        // Flatten back and shuffle
+        allPosts = Object.values(postsByCategory).flat()
+        const shuffled = allPosts.sort(() => Math.random() - 0.5)
         
         if (shuffled.length > 0) {
           setPosts(shuffled)
+          setError(false)
         } else {
-          setPosts(fallbackPosts)
+          throw new Error('No posts fetched')
         }
-        setError(false)
       } catch (err) {
         console.error('Failed to fetch news:', err)
-        setPosts(fallbackPosts)
+        // Use fallback NewsAPI data (genuine news sources)
         setError(true)
+        setPosts([])
       } finally {
         setLoading(false)
       }
@@ -220,7 +244,13 @@ export default function Blog() {
           {/* ── Error State ── */}
           {error && !loading && (
             <div className="blog-error">
-              <p>📡 Showing curated articles. Live feed will update shortly.</p>
+              <p>📡 Unable to fetch live news. Please visit these trusted sources directly:</p>
+              <div className="blog-external-links">
+                <a href="https://www.vogue.com/fashion" target="_blank" rel="noopener noreferrer">Vogue</a>
+                <a href="https://wwd.com/" target="_blank" rel="noopener noreferrer">WWD</a>
+                <a href="https://www.businessoffashion.com/" target="_blank" rel="noopener noreferrer">Business of Fashion</a>
+                <a href="https://www.forbes.com/women/" target="_blank" rel="noopener noreferrer">Forbes Women</a>
+              </div>
             </div>
           )}
 
@@ -245,6 +275,7 @@ export default function Blog() {
                   </div>
                   <h2>{filtered[0].title}</h2>
                   <p>{filtered[0].excerpt}</p>
+                  {filtered[0].source && <span className="blog-source">Source: {filtered[0].source}</span>}
                   <a href={filtered[0].link} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                     Read Article →
                   </a>
@@ -276,6 +307,7 @@ export default function Blog() {
                         </div>
                         <h3>{post.title}</h3>
                         <p>{post.excerpt}</p>
+                        {post.source && <span className="blog-source">Source: {post.source}</span>}
                         <span className="blog-card__read">Read more →</span>
                       </div>
                     </article>
@@ -286,9 +318,12 @@ export default function Blog() {
           )}
 
           {/* ── No Results ── */}
-          {!loading && filtered.length === 0 && (
+          {!loading && filtered.length === 0 && !error && (
             <div className="blog-empty">
-              <p>No articles found in this category. Try selecting "All" to see all news.</p>
+              <p>No articles found in "{activeCat}" category at the moment.</p>
+              <button className="btn btn-outline" onClick={() => setActiveCat('All')}>
+                View All Articles
+              </button>
             </div>
           )}
         </div>

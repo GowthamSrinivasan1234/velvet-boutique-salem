@@ -192,7 +192,7 @@
 /* ===== Error State ===== */
 .blog-error {
   text-align: center;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   background: #FFF3CD;
   border-radius: 12px;
   margin-bottom: 2rem;
@@ -200,7 +200,29 @@
 
 .blog-error p {
   color: #856404;
-  margin: 0;
+  margin: 0 0 1rem 0;
+}
+
+.blog-external-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.blog-external-links a {
+  color: var(--velvet);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.4rem 1rem;
+  background: rgba(139, 26, 74, 0.1);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.blog-external-links a:hover {
+  background: var(--velvet);
+  color: white;
 }
 
 /* ===== Empty State ===== */
@@ -214,7 +236,16 @@
 .blog-empty p {
   color: var(--gray-500);
   font-size: 1.1rem;
-  margin: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+/* ===== Source Attribution ===== */
+.blog-source {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--gray-400);
+  margin: 0.5rem 0;
+  font-style: italic;
 }
 
 /* ===== Card Link ===== */
