@@ -8,6 +8,66 @@
   background: linear-gradient(160deg, #FBF7FC 0%, #F0E0F5 40%, #E8D5F0 100%);
 }
 
+/* Hero Background Image */
+.hero__bg-image {
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+/* Special Day Overlay */
+.hero__special-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero__special-content {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(139, 26, 74, 0.08);
+  backdrop-filter: blur(8px);
+  border-radius: 30px;
+  border: 1px solid rgba(139, 26, 74, 0.1);
+  transform: rotate(-5deg);
+  opacity: 0.6;
+}
+
+.hero__special-title {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--velvet);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.hero__special-subtitle {
+  display: block;
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: var(--gray-600);
+  margin-bottom: 1rem;
+}
+
+.hero__special-discount {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background: var(--gradient-hero);
+  color: white;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 700;
+  border-radius: 50px;
+}
+
 .hero__bg-shapes { position: absolute; inset: 0; pointer-events: none; }
 
 .shape {
