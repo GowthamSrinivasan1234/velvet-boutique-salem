@@ -7,7 +7,6 @@ const navLinks = [
   { path: '/products', label: 'Collections' },
   { path: '/about', label: 'About' },
   { path: '/blog', label: 'Blog' },
-  { path: '/contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
@@ -50,7 +49,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link to="/contact" className="btn btn-primary navbar__cta" onClick={(e) => handleNavClick(e, '/contact')}>
-            Contact Now
+            Contact
           </Link>
         </nav>
 
