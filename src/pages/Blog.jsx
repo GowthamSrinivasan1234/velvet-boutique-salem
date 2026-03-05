@@ -141,8 +141,7 @@ export default function Blog() {
               })
             }
             return []
-          } catch (err) {
-            console.log(`Failed to fetch from ${feed.url}:`, err)
+          } catch {
             return []
           }
         })
@@ -186,8 +185,7 @@ export default function Blog() {
         } else {
           throw new Error('No posts fetched')
         }
-      } catch (err) {
-        console.error('Failed to fetch news:', err)
+      } catch {
         // Use fallback NewsAPI data (genuine news sources)
         setError(true)
         setPosts([])
