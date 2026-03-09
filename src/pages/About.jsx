@@ -17,14 +17,14 @@ function AnimSection({ children, className = '', delay = 0 }) {
 const values = [
   { icon: '✂️', title: 'Expert Stitching', desc: 'From blouse to lehenga — 1,100+ custom stitching orders delivered with perfection.' },
   { icon: '🪡', title: 'Aari Artistry', desc: 'Exquisite aari embroidery handcrafted by skilled artisans — our signature craft.' },
-  { icon: '💎', title: 'Fashion Jewellery', desc: 'Elegant neck pieces, pendants & earrings handpicked to complement every outfit.' },
+  { icon: '🥻', title: 'Curated Sarees', desc: 'Designer sarees handpicked for every occasion — weddings, festivals & everyday elegance.' },
   { icon: '💜', title: 'Her Store Her Style', desc: 'A women-owned boutique empowering every woman to express her unique style.' },
 ]
 
 const timeline = [
   { year: 'Oct 2024', title: 'The Studio Begins', desc: 'Velvet Boutique was born as a small stitching studio in Salem — just a sewing machine, a dream, and a passion for fashion.' },
   { year: 'Nov 2024', title: 'First Customers', desc: 'Word spread fast! Our blouse stitching and chudidar orders won hearts in the very first weeks.' },
-  { year: 'Jan 2025', title: 'Expanding the Craft', desc: 'Added fashion jewellery to our collection. The boutique was growing beyond stitching.' },
+  { year: 'Jan 2025', title: 'Expanding the Craft', desc: 'Added designer sarees and fashion jewellery to our collection. The boutique was growing beyond stitching.' },
   { year: 'Jul 2025', title: 'Aari Work Launches', desc: 'Introduced our signature aari embroidery — intricate handcrafted designs that became an instant favourite.' },
   { year: 'Oct 2025', title: 'The Big Leap', desc: 'Velvet Boutique became Salem\'s go-to fashion destination with hundreds of happy customers every month.' },
   { year: 'Dec 2025', title: 'Record-Breaking Month', desc: 'Our busiest month ever! From a small studio to Salem\'s most loved boutique in just 14 months.' },

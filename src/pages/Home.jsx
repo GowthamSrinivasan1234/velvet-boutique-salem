@@ -18,28 +18,29 @@ function AnimSection({ children, className = '', delay = 0 }) {
 
 /* ── Category data (from real sales report) ── */
 const categories = [
+  { name: 'Sarees', emoji: '🥻', color: '#753580', count: '67+ designs' },
   { name: 'Custom Stitching', emoji: '✂️', color: '#9B4DCA', count: '1,100+ orders' },
   { name: 'Aari & Embroidery', emoji: '🪡', color: '#E8A838', count: '100+ designs' },
   { name: 'Jewellery', emoji: '💎', color: '#20C997', count: '80+ pieces' },
 ]
 
-/* ── Featured services (real bestsellers from sales data) ── */
+/* ── Featured products (real bestsellers from sales data) ── */
 const featured = [
-  { id: 1, name: 'Blouse Stitching', price: 'From ₹350', tag: 'Most Popular', color: '#9B4DCA', emoji: '✂️',
+  { id: 1, name: 'Designer Sarees', price: 'From ₹440', tag: 'Bestseller', color: '#753580', emoji: '🥻',
+    desc: 'Handpicked designer sarees — silk, pattu & wedding collections for every occasion' },
+  { id: 2, name: 'Blouse Stitching', price: 'From ₹350', tag: 'Most Popular', color: '#9B4DCA', emoji: '✂️',
     desc: 'Expert custom blouse stitching with perfect fit — our most loved service' },
-  { id: 2, name: 'Aari Work', price: 'From ₹600', tag: 'Premium', color: '#E8A838', emoji: '🪡',
+  { id: 3, name: 'Aari Work', price: 'From ₹600', tag: 'Premium', color: '#E8A838', emoji: '🪡',
     desc: 'Exquisite aari embroidery with intricate handwork — our signature craft' },
-  { id: 3, name: 'Lehanga Stitching', price: 'From ₹1,100', tag: 'Bridal', color: '#753580', emoji: '👗',
-    desc: 'Beautiful custom lehanga stitching for weddings and special occasions' },
   { id: 4, name: 'Neck Piece', price: 'From ₹200', tag: 'Trending', color: '#20C997', emoji: '📿',
     desc: 'Elegant fashion jewellery — neck pieces, pendants & earrings for every occasion' },
 ]
 
 /* ── Testimonials — Real Google Reviews (4.8★) ── */
 const testimonials = [
-  { name: 'Priya K.', role: 'Google Review ★★★★★', text: 'Amazing stitching work and beautiful designs! The quality is outstanding and the staff is so helpful. Devika personally helped me with my blouse design.', avatar: '🌸', rating: 5 },
+  { name: 'Priya K.', role: 'Google Review ★★★★★', text: 'Amazing collection of sarees and kurtis! The quality is outstanding and the staff is so helpful. Devika personally helped me choose the perfect outfit for my sister\'s wedding.', avatar: '🌸', rating: 5 },
   { name: 'Meena R.', role: 'Google Review ★★★★★', text: 'Best boutique in Salem! I got a custom-stitched Anarkali and it fit perfectly. The attention to detail is incredible. Will definitely come back for more.', avatar: '✨', rating: 5 },
-  { name: 'Shalini V.', role: 'Google Review ★★★★★', text: 'Got beautiful aari work done for my engagement blouse and it was absolutely gorgeous. Highly recommend Velvet Boutique for any occasion!', avatar: '💜', rating: 5 },
+  { name: 'Shalini V.', role: 'Google Review ★★★★★', text: 'Ordered a Kanchipuram silk saree for my engagement and it was absolutely gorgeous. Packing was beautiful too. Highly recommend Velvet Boutique for any occasion!', avatar: '💜', rating: 5 },
   { name: 'Divya S.', role: 'Google Review ★★★★★', text: 'Women-owned and wonderful! Love how they help you style complete looks. The custom designs are worth every rupee. My go-to place in Fairlands!', avatar: '💫', rating: 5 },
 ]
 
@@ -62,8 +63,8 @@ export default function Home() {
               <span className="hero__title-accent">Signature Style</span>
             </h1>
             <p className="hero__description">
-              Custom stitching, exquisite aari embroidery & fashion jewellery.
-              Handcrafted fashion services from the heart of Salem, Tamil Nadu.
+              Designer sarees, custom stitching & exquisite aari embroidery.
+              Handcrafted fashion from the heart of Salem, Tamil Nadu.
             </p>
             <div className="hero__actions">
               <Link to="/products" className="btn btn-primary">
@@ -86,14 +87,14 @@ export default function Home() {
 
           <div className="hero__visual animate-scale-in delay-2">
             <div className="hero__card hero__card--main">
-              <div className="hero__card-img">✂️</div>
+              <div className="hero__card-img">🥻</div>
               <div className="hero__card-info">
-                <span>Blouse Stitching</span>
-                <strong>From ₹350</strong>
+                <span>Designer Sarees</span>
+                <strong>From ₹440</strong>
               </div>
             </div>
             <div className="hero__card hero__card--float1">
-              <span className="float-emoji">🪡</span>
+              <span className="float-emoji">✂️</span>
             </div>
             <div className="hero__card hero__card--float2">
               <span className="float-emoji">💎</span>
@@ -110,8 +111,8 @@ export default function Home() {
       {/* ═══ CATEGORIES ═══ */}
       <section className="section categories">
         <div className="container">
-          <AnimSection><h2 className="section-title">Our Services</h2></AnimSection>
-          <AnimSection delay={0.1}><p className="section-subtitle">Expert craftsmanship and personalized service for your fashion needs</p></AnimSection>
+          <AnimSection><h2 className="section-title">Shop by Category</h2></AnimSection>
+          <AnimSection delay={0.1}><p className="section-subtitle">Find exactly what you're looking for across our carefully curated categories</p></AnimSection>
           <div className="categories__grid">
             {categories.map((cat, i) => (
               <AnimSection key={cat.name} delay={i * 0.1}>
@@ -163,9 +164,9 @@ export default function Home() {
         <div className="marquee-track">
           {Array.from({ length: 3 }).map((_, i) => (
             <div key={i} className="marquee-content">
+              <span>★ Designer Sarees Collection</span>
               <span>★ Custom Stitching Services</span>
               <span>★ Aari & Embroidery Work</span>
-              <span>★ Fashion Jewellery</span>
               <span>★ 4.8★ Google Rating</span>
             </div>
           ))}
