@@ -11,12 +11,11 @@ function AnimSection({ children, className = '', delay = 0 }) {
 }
 
 const allProducts = [
-  /* ── Sarees (HIDDEN - uncomment when selling sarees again) ──
+  /* ── Sarees ── */
   { id: 1,  name: 'Designer Silk Saree',          price: 440,   cat: 'Sarees',            tag: 'Bestseller',   emoji: '🥻', color: '#753580' },
   { id: 2,  name: 'Designer Pattu Saree',         price: 440,   cat: 'Sarees',            tag: 'Popular',      emoji: '🥻', color: '#9B4DCA' },
   { id: 3,  name: 'Designer Wedding Saree',       price: 440,   cat: 'Sarees',            tag: 'Premium',      emoji: '🥻', color: '#E8A838' },
   { id: 4,  name: 'Designer Cotton Saree',        price: 440,   cat: 'Sarees',            tag: 'New',          emoji: '🥻', color: '#753580' },
-  */
 
   /* ── Custom Stitching ── */
   { id: 5,  name: 'Blouse Stitching',             price: 350,   cat: 'Custom Stitching',  tag: 'Most Popular', emoji: '✂️', color: '#753580' },
@@ -42,8 +41,7 @@ const allProducts = [
   { id: 21, name: 'Tassel',                       price: 500,   cat: 'Jewellery',         tag: 'New',          emoji: '🎀', color: '#753580' },
 ]
 
-// Categories: Add 'Sarees' back when selling sarees again
-const categories = ['All', /* 'Sarees', */ 'Custom Stitching', 'Aari & Embroidery', 'Jewellery']
+const categories = ['All', 'Sarees', 'Custom Stitching', 'Aari & Embroidery', 'Jewellery']
 const sortOptions = ['Featured', 'Price: Low → High', 'Price: High → Low', 'Newest']
 
 export default function Products() {
@@ -79,7 +77,7 @@ export default function Products() {
               Our <span className="products-hero__accent">Collections</span>
             </h1>
             <p className="products-hero__desc">
-              Custom stitching, aari embroidery & fashion jewellery — all under one roof.
+              Designer sarees, custom stitching, aari embroidery & fashion jewellery — all under one roof.
             </p>
           </AnimSection>
         </div>
