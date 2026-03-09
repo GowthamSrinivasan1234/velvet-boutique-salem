@@ -13,9 +13,7 @@ function AnimSection({ children, className = '', delay = 0 }) {
 const allProducts = [
   /* ── Sarees ── */
   { id: 1,  name: 'Designer Silk Saree',          price: 440,   cat: 'Sarees',            tag: 'Bestseller',   emoji: '🥻', color: '#753580' },
-  { id: 2,  name: 'Designer Pattu Saree',         price: 440,   cat: 'Sarees',            tag: 'Popular',      emoji: '🥻', color: '#9B4DCA' },
-  { id: 3,  name: 'Designer Wedding Saree',       price: 440,   cat: 'Sarees',            tag: 'Premium',      emoji: '🥻', color: '#E8A838' },
-  { id: 4,  name: 'Designer Cotton Saree',        price: 440,   cat: 'Sarees',            tag: 'New',          emoji: '🥻', color: '#753580' },
+  { id: 4,  name: 'Designer Cotton Saree',        price: 440,   cat: 'Sarees',            tag: 'New',          emoji: '🥻', color: '#9B4DCA' },
 
   /* ── Custom Stitching ── */
   { id: 5,  name: 'Blouse Stitching',             price: 350,   cat: 'Custom Stitching',  tag: 'Most Popular', emoji: '✂️', color: '#753580' },
@@ -23,16 +21,13 @@ const allProducts = [
   { id: 7,  name: 'Lehanga Stitching',            price: 1100,  cat: 'Custom Stitching',  tag: 'Premium',      emoji: '✂️', color: '#E8A838' },
   { id: 8,  name: 'Frock Stitching',              price: 400,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#753580' },
   { id: 9,  name: 'Skirt & Top Stitching',        price: 700,   cat: 'Custom Stitching',  tag: 'Trending',     emoji: '✂️', color: '#9B4DCA' },
-  { id: 10, name: 'Top Stitching',                price: 400,   cat: 'Custom Stitching',  tag: 'New',          emoji: '✂️', color: '#E8A838' },
-  { id: 11, name: 'Baby Frock Stitching',         price: 400,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#753580' },
-  { id: 12, name: 'Kids Wear Stitching',          price: 150,   cat: 'Custom Stitching',  tag: 'New',          emoji: '✂️', color: '#9B4DCA' },
-  { id: 13, name: 'Skirt Stitching',              price: 300,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#E8A838' },
+  { id: 11, name: 'Baby Frock Stitching',         price: 400,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#E8A838' },
+  { id: 12, name: 'Kids Wear Stitching',          price: 150,   cat: 'Custom Stitching',  tag: 'New',          emoji: '✂️', color: '#753580' },
 
   /* ── Aari & Embroidery ── */
   { id: 14, name: 'Aari Work',                    price: 600,   cat: 'Aari & Embroidery', tag: 'Bestseller',   emoji: '🪡', color: '#753580' },
   { id: 15, name: 'Designer Aari Bridal Work',    price: 600,   cat: 'Aari & Embroidery', tag: 'Premium',      emoji: '🪡', color: '#9B4DCA' },
-  { id: 16, name: 'Machine Embroidery',           price: 850,   cat: 'Aari & Embroidery', tag: 'New',          emoji: '🪡', color: '#E8A838' },
-  { id: 17, name: 'Painting Work',                price: 500,   cat: 'Aari & Embroidery', tag: 'Custom',       emoji: '🎨', color: '#753580' },
+  { id: 17, name: 'Painting Work',                price: 500,   cat: 'Aari & Embroidery', tag: 'Custom',       emoji: '🎨', color: '#E8A838' },
 
   /* ── Jewellery ── */
   { id: 18, name: 'Neck Piece',                   price: 200,   cat: 'Jewellery',         tag: 'Trending',     emoji: '📿', color: '#753580' },
