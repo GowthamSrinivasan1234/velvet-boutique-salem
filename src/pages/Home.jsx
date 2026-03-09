@@ -27,13 +27,17 @@ const categories = [
 /* ── Featured products (real bestsellers from sales data) ── */
 const featured = [
   { id: 1, name: 'Designer Sarees', price: 'From ₹440', tag: 'Bestseller', color: '#753580', emoji: '🥻',
-    desc: 'Handpicked designer sarees — silk, pattu & wedding collections for every occasion' },
+    desc: 'Handpicked designer sarees — silk, pattu & wedding collections for every occasion',
+    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&q=80' },
   { id: 2, name: 'Blouse Stitching', price: 'From ₹350', tag: 'Most Popular', color: '#9B4DCA', emoji: '✂️',
-    desc: 'Expert custom blouse stitching with perfect fit — our most loved service' },
+    desc: 'Expert custom blouse stitching with perfect fit — our most loved service',
+    image: 'https://images.unsplash.com/photo-1558171813-4c088753af8f?w=400&q=80' },
   { id: 3, name: 'Aari Work', price: 'From ₹600', tag: 'Premium', color: '#E8A838', emoji: '🪡',
-    desc: 'Exquisite aari embroidery with intricate handwork — our signature craft' },
+    desc: 'Exquisite aari embroidery with intricate handwork — our signature craft',
+    image: 'https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?w=400&q=80' },
   { id: 4, name: 'Neck Piece', price: 'From ₹200', tag: 'Trending', color: '#20C997', emoji: '📿',
-    desc: 'Elegant fashion jewellery — neck pieces, pendants & earrings for every occasion' },
+    desc: 'Elegant fashion jewellery — neck pieces, pendants & earrings for every occasion',
+    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80' },
 ]
 
 /* ── Testimonials — Real Google Reviews (4.8★) ── */
@@ -139,7 +143,11 @@ export default function Home() {
                 <div className="product-card" style={{ '--accent': item.color }}>
                   <div className="product-card__img">
                     <span className="product-card__tag">{item.tag}</span>
-                    <div className="product-card__placeholder">{item.emoji}</div>
+                    {item.image ? (
+                      <img src={item.image} alt={item.name} className="product-card__thumbnail" loading="lazy" />
+                    ) : (
+                      <div className="product-card__placeholder">{item.emoji}</div>
+                    )}
                     <div className="product-card__overlay">
                       <a href={`https://wa.me/919345188551?text=${encodeURIComponent(`Hi! I'm interested in *${item.name}* (${item.price}). Could you share more details?`)}`} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Enquire on WhatsApp</a>
                     </div>
