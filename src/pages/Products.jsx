@@ -20,7 +20,7 @@ const allProducts = [
   { id: 6,  name: 'Chudidar Stitching',           price: 450,   cat: 'Custom Stitching',  tag: 'Bestseller',   emoji: '✂️', color: '#9B4DCA', image: '/images/Chudidar.jpg' },
   { id: 7,  name: 'Lehanga Stitching',            price: 1100,  cat: 'Custom Stitching',  tag: 'Premium',      emoji: '✂️', color: '#E8A838', image: '/images/Lehanga.jpeg' },
   { id: 8,  name: 'Frock Stitching',              price: 400,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#753580', image: '/images/frock.jpeg' },
-  { id: 9,  name: 'Skirt & Top Stitching',        price: 700,   cat: 'Custom Stitching',  tag: 'Trending',     emoji: '✂️', color: '#9B4DCA', image: '/images/frock.jpeg' },
+  { id: 9,  name: 'Skirt & Top Stitching',        price: 700,   cat: 'Custom Stitching',  tag: 'Trending',     emoji: '✂️', color: '#9B4DCA', image: '/images/top&skirt.jpeg' },
   { id: 11, name: 'Baby Frock Stitching',         price: 400,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#E8A838', image: '/images/kidsDress.jpeg' },
   { id: 12, name: 'Kids Wear Stitching',          price: 150,   cat: 'Custom Stitching',  tag: 'New',          emoji: '✂️', color: '#753580', image: '/images/kids top and skirt.jpeg' },
 
