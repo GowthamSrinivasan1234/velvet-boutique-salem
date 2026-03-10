@@ -12,28 +12,28 @@ function AnimSection({ children, className = '', delay = 0 }) {
 
 const allProducts = [
   /* ── Sarees ── */
-  { id: 1,  name: 'Designer Silk Saree',          price: 440,   cat: 'Sarees',            tag: 'Bestseller',   emoji: '🥻', color: '#753580' },
-  { id: 4,  name: 'Designer Cotton Saree',        price: 440,   cat: 'Sarees',            tag: 'New',          emoji: '🥻', color: '#9B4DCA' },
+  { id: 1,  name: 'Designer Silk Saree',          price: 440,   cat: 'Sarees',            tag: 'Bestseller',   emoji: '🥻', color: '#753580', image: '/images/DesignerSaree.webp' },
+  { id: 4,  name: 'Designer Cotton Saree',        price: 440,   cat: 'Sarees',            tag: 'New',          emoji: '🥻', color: '#9B4DCA', image: '/images/cottonsaree.jpeg' },
 
   /* ── Custom Stitching ── */
-  { id: 5,  name: 'Blouse Stitching',             price: 350,   cat: 'Custom Stitching',  tag: 'Most Popular', emoji: '✂️', color: '#753580' },
-  { id: 6,  name: 'Chudidar Stitching',           price: 450,   cat: 'Custom Stitching',  tag: 'Bestseller',   emoji: '✂️', color: '#9B4DCA' },
-  { id: 7,  name: 'Lehanga Stitching',            price: 1100,  cat: 'Custom Stitching',  tag: 'Premium',      emoji: '✂️', color: '#E8A838' },
-  { id: 8,  name: 'Frock Stitching',              price: 400,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#753580' },
-  { id: 9,  name: 'Skirt & Top Stitching',        price: 700,   cat: 'Custom Stitching',  tag: 'Trending',     emoji: '✂️', color: '#9B4DCA' },
-  { id: 11, name: 'Baby Frock Stitching',         price: 400,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#E8A838' },
-  { id: 12, name: 'Kids Wear Stitching',          price: 150,   cat: 'Custom Stitching',  tag: 'New',          emoji: '✂️', color: '#753580' },
+  { id: 5,  name: 'Designer Blouse',              price: 350,   cat: 'Custom Stitching',  tag: 'Most Popular', emoji: '✂️', color: '#753580', image: '/images/designer blouse.jpeg' },
+  { id: 6,  name: 'Chudidar Stitching',           price: 450,   cat: 'Custom Stitching',  tag: 'Bestseller',   emoji: '✂️', color: '#9B4DCA', image: '/images/Chudidar.jpg' },
+  { id: 7,  name: 'Lehanga Stitching',            price: 1100,  cat: 'Custom Stitching',  tag: 'Premium',      emoji: '✂️', color: '#E8A838', image: '/images/Lehanga.jpeg' },
+  { id: 8,  name: 'Frock Stitching',              price: 400,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#753580', image: '/images/frock.jpeg' },
+  { id: 9,  name: 'Skirt & Top Stitching',        price: 700,   cat: 'Custom Stitching',  tag: 'Trending',     emoji: '✂️', color: '#9B4DCA', image: '/images/frock.jpeg' },
+  { id: 11, name: 'Baby Frock Stitching',         price: 400,   cat: 'Custom Stitching',  tag: 'Popular',      emoji: '✂️', color: '#E8A838', image: '/images/kidsDress.jpeg' },
+  { id: 12, name: 'Kids Wear Stitching',          price: 150,   cat: 'Custom Stitching',  tag: 'New',          emoji: '✂️', color: '#753580', image: '/images/kids top and skirt.jpeg' },
 
   /* ── Aari & Embroidery ── */
-  { id: 14, name: 'Aari Work',                    price: 600,   cat: 'Aari & Embroidery', tag: 'Bestseller',   emoji: '🪡', color: '#753580' },
-  { id: 15, name: 'Designer Aari Bridal Work',    price: 600,   cat: 'Aari & Embroidery', tag: 'Premium',      emoji: '🪡', color: '#9B4DCA' },
-  { id: 17, name: 'Painting Work',                price: 500,   cat: 'Aari & Embroidery', tag: 'Custom',       emoji: '🎨', color: '#E8A838' },
+  { id: 14, name: 'Aari Work',                    price: 600,   cat: 'Aari & Embroidery', tag: 'Bestseller',   emoji: '🪡', color: '#753580', image: '/images/Aari work.jpeg' },
+  { id: 15, name: 'Designer Aari Bridal Work',    price: 600,   cat: 'Aari & Embroidery', tag: 'Premium',      emoji: '🪡', color: '#9B4DCA', image: '/images/Bridal Aari work.jpeg' },
+  { id: 17, name: 'Painting Work',                price: 500,   cat: 'Aari & Embroidery', tag: 'Custom',       emoji: '🎨', color: '#E8A838', image: '/images/painting blouse.jpeg' },
 
   /* ── Jewellery ── */
-  { id: 18, name: 'Neck Piece',                   price: 200,   cat: 'Jewellery',         tag: 'Trending',     emoji: '📿', color: '#753580' },
-  { id: 19, name: 'Pendant',                      price: 170,   cat: 'Jewellery',         tag: 'Popular',      emoji: '💎', color: '#9B4DCA' },
-  { id: 20, name: 'Earrings',                     price: 390,   cat: 'Jewellery',         tag: 'Bestseller',   emoji: '✨', color: '#E8A838' },
-  { id: 21, name: 'Tassel',                       price: 500,   cat: 'Jewellery',         tag: 'New',          emoji: '🎀', color: '#753580' },
+  { id: 18, name: 'Neck Piece',                   price: 200,   cat: 'Jewellery',         tag: 'Trending',     emoji: '📿', color: '#753580', image: '/images/neckpiece.jpeg' },
+  { id: 19, name: 'Pendant',                      price: 170,   cat: 'Jewellery',         tag: 'Popular',      emoji: '💎', color: '#9B4DCA', image: '/images/pendent.jpeg' },
+  { id: 20, name: 'Earrings',                     price: 390,   cat: 'Jewellery',         tag: 'Bestseller',   emoji: '✨', color: '#E8A838', image: '/images/earrings.jpeg' },
+  { id: 21, name: 'Bridal Set',                   price: 500,   cat: 'Jewellery',         tag: 'New',          emoji: '🎀', color: '#753580', image: '/images/bridalset.jpeg' },
 ]
 
 const categories = ['All', 'Sarees', 'Custom Stitching', 'Aari & Embroidery', 'Jewellery']
@@ -109,7 +109,11 @@ export default function Products() {
                 <div className="product-card" style={{ '--accent': item.color }}>
                   <div className="product-card__img">
                     <span className="product-card__tag">{item.tag}</span>
-                    <div className="product-card__placeholder">{item.emoji}</div>
+                    {item.image ? (
+                      <img src={item.image} alt={item.name} className="product-card__image" />
+                    ) : (
+                      <div className="product-card__placeholder">{item.emoji}</div>
+                    )}
                     <div className="product-card__overlay">
                       <button className="btn btn-primary" onClick={() => openWhatsApp(item)}>Enquire on WhatsApp</button>
                     </div>
